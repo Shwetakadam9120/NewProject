@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="cssempltable.css"> <!-- Adjust path if necessary -->
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Management</title>
+</head>
+<body>
+  <div class="sidebar">
+    <!-- Sidebar content here -->
+  </div>
+  <section class="home-section">
+    <nav>
+      <!-- Navigation content here -->
+    </nav>
+
+    <div class="home-content">
+      <div class="sales-boxes">
+        <div class="recent-sales box">
+          <div class="title">Employee</div>
+          <div class="sales-details">
+            <table id="employeeTable">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Department</th>
+                  <th>Edit</th>
+                  <th>View Profile</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                // Database connection details
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "employee_db";
+
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+                // Fetch data from the database
+                $sql = "SELECT * FROM employees";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        echo "<tr>
+                                <td>{$row['full_name']}</td>
+                                <td>{$row['email']}</td>
+                                <td>{$row['phone']}</td>
+                                <td>{$row['job_title']}</td>
+                                <td><a href='empldit.html'>Edit</a></td>
+                                <td><a href='tviewprofile.html'>View</a></td>
+                                <td><span class='status-circle " . ($row['status'] == 'active' ? 'status-active' : 'status-inactive') . "'></span></td>
+                              </tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='7'>No employees found</td></tr>";
+                }
+
+                $conn->close();
+                ?>
+              </tbody>
+            </table>
+          </div>
+          <div class="button">
+            <a href="registration_form.html">+ Add Employee</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".sidebarBtn");
+    sidebarBtn.onclick = function() {
+      sidebar.classList.toggle("active");
+      if(sidebar.classList.contains("active")){
+        sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+      } else {
+        sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+      }
+    }
+
+    document.getElementById('searchInput').addEventListener('keyup', function() {
+      let filter = this.value.toUpperCase();
+      let table = document.getElementById('employeeTable');
+      let tr = table.getElementsByTagName('tr');
+
+      for (let i = 1; i < tr.length; i++) { // Start from 1 to skip the header row
+        let td = tr[i].getElementsByTagName('td')[0]; // Assuming Name is in the first column
+        if (td) {
+          let txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

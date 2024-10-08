@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Punch-in and Punch-out System</title>
+  <link rel="stylesheet" href="punch.css">
+</head>
+<body>
+  <header>
+    <h1>Employee Management System</h1>
+    <p>Track your working hours efficiently</p>
+  </header>
+
+  <main>
+    <div class="punch-card">
+      <h2>Punch In/Out</h2>
+      <div class="punch-info">
+        <p id="date"></p>
+        <p id="time"></p>
+        <p id="status">Status: <span>Not Punched In</span></p>
+      </div>
+      <button id="punch-btn">Punch In</button>
+    </div>
+
+    <div class="log">
+      <h3>Today's Log</h3>
+      <ul id="log-list"></ul>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Employee Management System</p>
+  </footer>
+
+  <script src="scriptpunch.js"></script>
+</body>
+</html>

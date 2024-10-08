@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Responsive Admin Dashboard | CodingLab</title>
+  <link rel="stylesheet" href="style5.css">
+  <!-- Boxicons CDN Link -->
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Add custom styles here */
+    .sales-details {
+      margin-top: 20px;
+    }
+
+    .sales-details .details {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .sales-details .details .topic {
+      flex: 1 1 100%;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .sales-details .details ul {
+      flex: 1 1 100%;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sales-details .details ul li {
+      margin-bottom: 5px;
+    }
+
+    .sales-details .details ul li a {
+      color: #666;
+      text-decoration: none;
+    }
+
+    .sales-details .details ul li a:hover {
+      color: #000;
+    }
+    
+    /* Employee Table Styles */
+    .employee-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    
+    .employee-table th, .employee-table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    
+    .employee-table th {
+      background-color: #f2f2f2;
+    }
+    
+    .employee-table tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <img src="logo19.png" style="width: 50px; height: 50px;"> 
+      <span class="logo_name">Virajo.in</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="dashboard.html" class="active">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="team.html">
+          <i class='bx bx-group'></i>
+          <span class="links_name">Teams</span>
+        </a>
+      </li>
+      <li>
+        <a href="employees.html">
+          <i class='bx bx-user'></i>
+          <span class="links_name">Employees</span>
+        </a>
+      </li>
+      <li>
+        <a href="attendance.html">
+          <i class='bx bx-calendar'></i>
+          <span class="links_name">Attendance</span>
+        </a>
+      </li>
+      <li>
+        <a href="leave.html">
+          <i class='bx bx-calendar-event'></i>
+          <span class="links_name">Leaves</span>
+        </a>
+      </li>
+      <li>
+        <a href="payment-list.html">
+          <i class='bx bx-dollar-circle'></i>
+          <span class="links_name">Payment</span>
+        </a>
+      </li>
+      <li>
+        <a href="calendar.html">
+          <i class='bx bx-calendar'></i>
+          <span class="links_name">Calendar</span>
+        </a>
+      </li>
+      <li>
+        <a href="report1.html">
+          <i class='bx bx-file'></i>
+          <span class="links_name">Report</span>
+        </a>
+      </li>
+      <li>
+        <a href="notification.html">
+          <i class='bx bx-bell'></i>
+          <span class="links_name">Notification</span>
+        </a>
+      </li>
+      <li>
+        <a href="settings.html">
+          <i class='bx bx-cog'></i>
+          <span class="links_name">Setting</span>
+        </a>
+      </li>
+      <li class="log_out">
+        <a href="logut.html">
+          <i class='bx bx-log-out'></i>
+          <span class="links_name">Log out</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='bx bx-menu sidebarBtn'></i>
+        <span class="dashboard">Attendance</span>
+      </div>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchTable()">
+        <i class='bx bx-search'></i>
+      </div>
+      <div class="profile-details">
+        <a href="adminpage.html">
+            <img src="user3.jpg" alt="">
+            <span class="adminpage">ABC</span>
+            <i class="bx bx-bell notification-icon"></i> 
+        </a>
+      </div>
+    </nav>
+
+    <div class="home-content">
+      <div class="overview-boxes">
+        <div class="box">
+          <div class="right-side">
+            <div class="box-topic">Total Employees</div>
+            <div class="number">300</div>
+            <div class="indicator">
+              <span class="text">Up from yesterday</span>
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <div class="right-side">
+            <div class="box-topic">On Time</div>
+            <div class="number">30</div>
+            <div class="indicator">
+              <span class="text">Up from yesterday</span>
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <div class="right-side">
+            <div class="box-topic">Absent</div>
+            <div class="number">9</div>
+            <div class="indicator">
+              <span class="text">Up from yesterday</span>
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <div class="right-side">
+            <div class="box-topic">Time off</div>
+            <div class="number">5</div>
+            <div class="indicator">
+              <span class="text">Down From Today</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Employee Table -->
+      <table class="employee-table">
+        <thead>
+          <tr>
+            <th>Employee ID</th>
+            <th>Name</th>
+            <th>Shift</th>
+            <th>Status</th>
+            <th>Clock in</th>
+            <th>Clock Out</th>
+            <th>Overtime</th>
+            <th>Location</th>
+          </tr>
+        </thead>
+        <tbody id="employeeTableBody">
+          <tr>
+            <td>001</td>
+            <td>John Doe</td>
+            <td>Morning</td>
+            <td>Pending</td>
+            <td>8:00 AM</td>
+            <td>5:00 PM</td>
+            <td>2 hours</td>
+            <td>Mail Office</td>
+          </tr>
+          <tr>
+            <td>002</td>
+            <td>shruti</td>
+            <td>Morning</td>
+            <td>Pending</td>
+            <td>9:00 AM</td>
+            <td>6:00 PM</td>
+            <td>1 hour</td>
+            <td>Remote</td>
+          </tr>
+          <tr></tr>
+            <td>003</td>
+            <td>sayali</td>
+            <td>Morning</td>
+            <td>Pending</td>
+            <td>9:00 AM</td>
+            <td>6:00 PM</td>
+            <td>4 hour</td>
+            <td>Remote</td>
+          </tr>
+          <tr></tr>
+            <td>004</td>
+            <td>sakshu</td>
+            <td>Morning</td>
+            <td>Pending</td>
+            <td>9:00 AM</td>
+            <td>6:00 PM</td>
+            <td>3 hour</td>
+            <td>Remote</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <script>
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".sidebarBtn");
+    sidebarBtn.onclick = function() {
+      sidebar.classList.toggle("active");
+      if (sidebar.classList.contains("active")) {
+        sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+      } else {
+        sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+      }
+    }
+
+    function searchTable() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const tableBody = document.getElementById('employeeTableBody');
+      const rows = tableBody.getElementsByTagName('tr');
+
+      for (let i = 0; i < rows.length; i++) {
+        const cells = rows[i].getElementsByTagName('td');
+        let rowContainsSearchTerm = false;
+
+        for (let j = 0; j < cells.length; j++) {
+          if (cells[j].textContent.toLowerCase().includes(input)) {
+            rowContainsSearchTerm = true;
+            break;
+          }
+        }
+
+        rows[i].style.display = rowContainsSearchTerm ? '' : 'none';
+      }
+    }
+  </script>
+</body>
+</html>

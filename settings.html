@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Settings | Virajo.in</title>
+  <link rel="stylesheet" href="style10.css">
+ 
+  
+  <!-- Boxicons CDN Link -->
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="sidebar">
+    <div class="logo-details">
+        <img src="logo19.png" style="width: 50px; height: 50px;"> 
+        <span class="logo_name">Virajo.in</span>
+    </div>
+    <ul class="nav-links">
+        <li>
+            <a href="dashboard.html" class="active">
+                <i class='bx bx-grid-alt'></i>
+                <span class="links_name">Dashboard</span>
+            </a>
+        </li>
+        <li>
+            <a href="team.html">
+                <i class='bx bx-group'></i>
+                <span class="links_name">Teams</span>
+            </a>
+        </li>
+        <li>
+            <a href="employees.html">
+                <i class='bx bx-user'></i>
+                <span class="links_name">Employees</span>
+            </a>
+        </li>
+        <li>
+            <a href="attendance.html">
+                <i class='bx bx-calendar'></i>
+                <span class="links_name">Attendance</span>
+            </a>
+        </li>
+        <li>
+            <a href="leave.html">
+                <i class='bx bx-calendar-event'></i>
+                <span class="links_name">Leaves</span>
+            </a>
+        </li>
+        <li>
+            <a href="payment-list.html">
+                <i class='bx bx-dollar-circle'></i>
+                <span class="links_name">Payment</span>
+            </a>
+        </li>
+        <li>
+            <a href="calendar.html">
+                <i class='bx bx-calendar'></i>
+                <span class="links_name">Calendar</span>
+            </a>
+        </li>
+        <li>
+            <a href="report1.html">
+                <i class='bx bx-file'></i>
+                <span class="links_name">Report</span>
+            </a>
+        </li>
+        <li>
+            <a href="notification.html">
+                <i class='bx bx-bell'></i>
+                <span class="links_name">Notification</span>
+            </a>
+        </li>
+        <li>
+            <a href="settings.html">
+                <i class='bx bx-cog'></i>
+                <span class="links_name">Settings</span>
+            </a>
+        </li>
+        <li class="log_out">
+            <a href="logut.html">
+                <i class='bx bx-log-out'></i>
+                <span class="links_name">Log out</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<section class="home-section">
+    <nav>
+        <div class="sidebar-button">
+            <i class='bx bx-menu sidebarBtn'></i>
+            <span class="dashboard">Settings</span>
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="Search...">
+            <i class='bx bx-search'></i>
+        </div>
+        <div class="profile-details">
+            <a href="adminpage.html">
+                <img src="user3.jpg" alt="">
+                <span class="adminpage">ABC</span>
+                <i class="bx bx-bell notification-icon"></i> 
+            </a>
+        </div>
+    </nav>
+
+    <div class="settings-content">
+        <div class="settings-header">
+            <h2>User Settings</h2>
+            <p>Update your profile and account settings.</p>
+        </div>
+        
+        <form id="settingsForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" value="ABC" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" value="abc@gmail.com" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter new password">
+            </div>
+            <div class="form-group">
+                <label for="notifications">Notifications</label>
+                <select id="notifications" name="notifications">
+                    <option value="enabled">Enabled</option>
+                    <option value="disabled">Disabled</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="theme">Theme</label>
+                <select id="theme" name="theme">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+            </div>
+            <div class="form-actions">
+                <button type="submit">Save Changes</button>
+                <button type="button" onclick="window.location.href='dashboard.html';">Cancel</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<script>
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".sidebarBtn");
+    sidebarBtn.onclick = function() {
+        sidebar.classList.toggle("active");
+        if(sidebar.classList.contains("active")){
+            sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+        } else {
+            sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+        }
+    }
+</script>
+
+<style>
+    /* Styles for settings page */
+    .settings-content {
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .settings-header {
+        margin-bottom: 20px;
+    }
+
+    .settings-header h2 {
+        font-size: 24px;
+        color: #333;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .form-actions {
+        display: flex;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    .form-actions button {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: #7a60ff;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .form-actions button:hover {
+        background-color: #6a50e0;
+    }
+</style>
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous">
+    <link rel="stylesheet" href="eedit.css">
+</head>
+<body>
+
+<nav class="side-nav">
+    <ul>
+        <li><a href="#employees-account">Employees Account</a></li>
+        <li><a href="#bank-account">Bank Account</a></li>
+        <li><a href="#salary-details">Salary Details</a></li>
+        <li><a href="#admin-panel">Admin</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <!-- Employees Account Section -->
+    <section id="employees-account">
+        <div class="card">
+            <h2>Public Info</h2>
+            <div class="form-group">
+                <label for="profile-image">Profile Image:</label>
+                <input type="file" id="profile-image" name="profile-image">
+                <img id="profile-image-display" src="default-profile.jpg" alt="Profile Image" class="profile-image">
+            </div>
+            <div class="employee-details">
+                <div class="form-group">
+                    <label for="employee-id">Employee ID:</label>
+                    <input type="text" id="employee-id" name="employeeId" required>
+                </div>
+                <div class="form-group">
+                    <label for="employee-name">Employee Name:</label>
+                    <input type="text" id="employee-name" name="employeeName" required>
+                </div>
+                <div class="form-group">
+                    <label for="department-name">Department Name:</label>
+                    <input type="text" id="department-name" name="departmentName" required>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bank Account Section -->
+    <section id="bank-account">
+        <div class="card">
+            <h2>Bank Account</h2>
+            <!-- Bank Account Information Section -->
+            <div class="bank-details">
+                <form id="bank-form">
+                    <div class="form-group">
+                        <label for="bank-account-name">Bank Account Name:</label>
+                        <input type="text" id="bank-account-name" name="bankAccountName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bank-account-number">Bank Account Number:</label>
+                        <input type="text" id="bank-account-number" name="bankAccountNumber" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bank-upload">Upload Bank Document:</label>
+                        <input type="file" id="bank-upload" name="bankUpload" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" required>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Salary Details Section -->
+    <section id="salary-details">
+        <div class="card">
+            <h2>Employee Salary Details</h2>
+            <div class="personal-details">
+                <h3>Personal Information</h3>
+                <p><strong>Name:</strong> John Doe</p>
+                <p><strong>Employee ID:</strong> EMP12345</p>
+                <p><strong>Department:</strong> Sales</p>
+                <p><strong>Email:</strong> john.doe@example.com</p>
+            </div>
+            <table class="salary-table">
+                <thead>
+                    <tr>
+                        <th>Effective Date</th>
+                        <th>Wage Type</th>
+                        <th>Salary Amount</th>
+                        <th>Account Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>01/01/2024</td>
+                        <td>Base Salary</td>
+                        <td>$3,000</td>
+                        <td>Account No: 1234567890, Bank: XYZ Bank</td>
+                    </tr>
+                    <tr>
+                        <td>01/01/2024</td>
+                        <td>Bonus</td>
+                        <td>$500</td>
+                        <td>Account No: 1234567890, Bank: XYZ Bank</td>
+                    </tr>
+                    <tr>
+                        <td>01/02/2024</td>
+                        <td>Base Salary</td>
+                        <td>$3,000</td>
+                        <td>Account No: 1234567890, Bank: XYZ Bank</td>
+                    </tr>
+                    <tr>
+                        <td>01/02/2024</td>
+                        <td>Commission</td>
+                        <td>$700</td>
+                        <td>Account No: 1234567890, Bank: XYZ Bank</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Admin Panel Section -->
+    <section id="admin-panel">
+        <h1>Employee Management - Admin Panel</h1>
+        
+        <!-- User Permissions and Roles Section -->
+        <div class="user-permissions-roles">
+            <form id="permissions-form">
+                <div class="form-group">
+                    <label for="user-permissions">User Permissions:</label>
+                    <select id="user-permissions" name="userPermissions" required>
+                        <option value="view">View Employees</option>
+                        <option value="edit">Edit Employees</option>
+                        <option value="delete">Delete Employees</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="role">Role:</label>
+                    <select id="role" name="role" required>
+                        <option value="employee">Employee</option>
+                        <option value="admin">Admin</option>
+                        <option value="super-admin">Super Admin</option>
+                    </select>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+</div>
+
+<script>
+    // JavaScript to display the uploaded profile image
+    const profileImageInput = document.getElementById('profile-image');
+    const profileImageDisplay = document.getElementById('profile-image-display');
+
+    profileImageInput.addEventListener('change', function() {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                profileImageDisplay.src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
+
+</body>
+</html>

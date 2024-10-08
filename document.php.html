@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<!-- Coding by CodingNepal | www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Responsiive Admin Dashboard | CodingLab </title>
+    <link rel="stylesheet" href="style12.css">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <img src="images1.png" style="width: 50px; height: 50px;"> <!-- Adjust width and height as needed -->
+      <span class="logo_name">Virajo.in</span>
+    </div>
+      <ul class="nav-links">
+        <li>
+          <a href="#" class="active">
+            <i class='bx bx-grid-alt' ></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="team.html">
+            <i class='bx bx-group' ></i>
+            <span class="links_name">Teams</span>
+          </a>
+        </li>
+        <li>
+          <a href="emploees.html">
+            <i class='bx bx-user'></i>
+            <span class="links_name">Employees</span>
+          </a>
+        </li>
+        <li>
+          <a href="attendance.html">
+            <i class='bx bx-calendar' ></i>
+            <span class="links_name">Attendance</span>
+          </a>
+        </li>
+        <li>
+          <a href="leave.html">
+            <i class='bx bx-calendar-event' ></i>
+            <span class="links_name">Leaves</span>
+          </a>
+        </li>
+        <li>
+          <a href="payment-list.html">
+            <i class='bx bx-dollar-circle' ></i>
+            <span class="links_name">Payment</span>
+          </a>
+        </li>
+        <li>
+          <a href="calendar.html">
+            <i class='bx bx-calendar' ></i>
+            <span class="links_name">Calendar</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-file' ></i>
+            <span class="links_name">Documents</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <i class='bx bx-bell' ></i>
+            <span class="links_name">Notification</span>
+          </a>
+        </li>
+        <li>
+          <a href="settings.html">
+            <i class='bx bx-cog' ></i>
+            <span class="links_name">Setting</span>
+          </a>
+        </li>
+        <li class="log_out">
+          <a href="#">
+            <i class='bx bx-log-out'></i>
+            <span class="links_name">Log out</span>
+          </a>
+        </li>
+      </ul>
+  </div>
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='bx bx-menu sidebarBtn'></i>
+        <span class="dashboard">Document</span>
+      </div>
+      <div class="search-box">
+        <input type="text" placeholder="Search...">
+        <i class='bx bx-search' ></i>
+      </div>
+      <div class="profile-details">
+        <img src="images.png" alt="">
+        <span class="admin_name">ABC</span>
+        <i class='bx bx-chevron-down' ></i>
+      </div>
+    </nav>
+    <div class="employee-document-page">
+        <div class="employee-info">
+          <h2>Employee Documents - John Doe</h2>
+          <p>ID: EMP001</p>
+          <p>Department: HR</p>
+          <!-- Add more employee information as needed -->
+        </div>
+    
+        <div class="document-upload-form">
+          <h3>Upload New Document</h3>
+          <!-- Add your form fields for document upload -->
+          <form>
+            <label for="documentName">Document Name:</label>
+            <input type="text" id="documentName" name="documentName" required>
+    
+            <label for="documentDescription">Description:</label>
+            <textarea id="documentDescription" name="documentDescription"></textarea>
+    
+            <label for="documentFile">Choose File:</label>
+            <input type="file" id="documentFile" name="documentFile" accept=".pdf, .doc, .docx" required>
+    
+            <button type="submit" class="action-button">Upload Document</button>
+          </form>
+        </div>
+    
+        <h3>Document List</h3>
+        <table class="document-list">
+          <thead>
+            <tr>
+              <th>Document Name</th>
+              <th>Upload Date</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Sample document data, replace with dynamic data from your system -->
+            <tr>
+              <td>Employee Handbook</td>
+              <td>2023-01-15</td>
+              <td>Approved</td>
+              <td>
+                <button class="action-button">Download</button>
+                <button class="action-button">Delete</button>
+              </td>
+            </tr>
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+    
+        <div class="actions">
+          <button class="action-button">Download All</button>
+          <button class="action-button">Delete All</button>
+        </div>
+      </div>
+   
+
+      
+  </section>
+
+  <script>
+   let sidebar = document.querySelector(".sidebar");
+let sidebarBtn = document.querySelector(".sidebarBtn");
+sidebarBtn.onclick = function() {
+  sidebar.classList.toggle("active");
+  if(sidebar.classList.contains("active")){
+  sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+}else
+  sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+}
+ </script>
+
+</body>
+</html>

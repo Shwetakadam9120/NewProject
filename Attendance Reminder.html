@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Reminder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .reminder-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .punch-reminder {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .punch-reminder p {
+            margin: 0;
+            font-size: 16px;
+            color: #777;
+        }
+        .punch-reminder strong {
+            color: #333;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .btn {
+            background-color: #7a60ff; /* Primary color */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #5a46d9; /* Darker shade of primary */
+        }
+        .status {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #28a745;
+        }
+        .warning {
+            color: red;
+        }
+        /* Secondary color for background of punched-out reminder */
+        .punch-reminder:nth-child(2) {
+            background-color: #cd9ffa; /* Secondary color */
+            color: white;
+        }
+        .punch-reminder:nth-child(2) p {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reminder-container">
+        <h2>Attendance Reminder</h2>
+
+        <div class="punch-reminder">
+            <p><strong>Punch In Reminder:</strong> Don't forget to punch in before 9:00 AM.</p>
+            <p class="warning">Current Status: Not Punched In</p>
+        </div>
+
+        <div class="punch-reminder">
+            <p><strong>Punch Out Reminder:</strong> Remember to punch out at the end of the day.</p>
+            <p>Current Status: Punched In</p>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn" onclick="alert('Punched In')">Punch In</button>
+            <button class="btn" onclick="alert('Punched Out')">Punch Out</button>
+        </div>
+
+        <div class="status">
+            <p>Status: <span id="status-text">Waiting for punch in...</span></p>
+        </div>
+    </div>
+
+    <script>
+        const punchInBtn = document.querySelector(".btn-group .btn:nth-child(1)");
+        const punchOutBtn = document.querySelector(".btn-group .btn:nth-child(2)");
+        const statusText = document.getElementById("status-text");
+
+        punchInBtn.addEventListener("click", function() {
+            statusText.textContent = "You have punched in!";
+            statusText.style.color = "#28a745";
+        });
+
+        punchOutBtn.addEventListener("click", function() {
+            statusText.textContent = "You have punched out!";
+            statusText.style.color = "#dc3545";
+        });
+    </script>
+
+</body>
+</html>

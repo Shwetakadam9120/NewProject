@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<!-- Coding by CodingNepal | www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Responsive Admin Dashboard | CodingLab</title>
+  <link rel="stylesheet" href="style5.css">
+  <!-- Boxicons CDN Link -->
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Calendar styling */
+    .calendar {
+      margin-top: 70px;
+      margin-left: 60px;
+      background-color: #fff;
+      border-radius: 9px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 480px;
+      /* Adjust the width as needed */
+    }
+
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .calendar-header i {
+      cursor: pointer;
+    }
+
+    .calendar-days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+    }
+
+    .day {
+      text-align: center;
+      padding: 10px;
+      background-color: #f3f3f3;
+      border-radius: 4px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    /* Style for specific days, like today or events */
+    .day.today {
+      background-color: #f1c40f;
+      color: #fff;
+    }
+
+    /* Add hover effect */
+    .day:hover {
+      background-color: #e0e0e0;
+      cursor: pointer;
+    }
+
+    .days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+    }
+
+    .days div {
+      text-align: center;
+      padding: 10px;
+      border-radius: 4px;
+      color: #555;
+    }
+
+    /* Button styling */
+    .sidebar-button {
+      margin-top: 20px;
+      margin-right: 20px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+    .sidebar-button {
+      margin-top: 20px;
+      margin-right: 20px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background-color: #230a5e;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #0e0541;
+    }
+
+    /* Additional styling for the contact button */
+    .contact-button {
+      margin-top: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <img src="logo19.png" style="width: 50px; height: 50px;">
+      <span class="logo_name">Virajo.in</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="#" class="active">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="team.html">
+          <i class='bx bx-group'></i>
+          <span class="links_name">Teams</span>
+        </a>
+      </li>
+      <li>
+        <a href="employees.html">
+          <i class='bx bx-user'></i>
+          <span class="links_name">Employees</span>
+        </a>
+      </li>
+      <li>
+        <a href="attendance.html">
+          <i class='bx bx-calendar'></i>
+          <span class="links_name">Attendance</span>
+        </a>
+      </li>
+      <li>
+        <a href="leave.html">
+          <i class='bx bx-calendar-event'></i>
+          <span class="links_name">Leaves</span>
+        </a>
+      </li>
+      <li>
+        <a href="payment-list.html">
+          <i class='bx bx-dollar-circle'></i>
+          <span class="links_name">Payment</span>
+        </a>
+      </li>
+      <li>
+        <a href="calendar.php.html">
+          <i class='bx bx-calendar'></i>
+          <span class="links_name">Calendar</span>
+        </a>
+      </li>
+      <li>
+        <a href="report1.html">
+            <i class='bx bx-file'></i>
+            <span class="links_name">Report</span>
+        </a>
+    </li>
+      <li>
+        <a href="notification.html">
+          <i class='bx bx-bell'></i>
+          <span class="links_name">Notification</span>
+        </a>
+      </li>
+      <li>
+        <a href="settings.html">
+          <i class='bx bx-cog'></i>
+          <span class="links_name">Setting</span>
+        </a>
+      </li>
+      <li class="log_out">
+        <a href="logut.html">
+          <i class='bx bx-log-out'></i>
+          <span class="links_name">Log out</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='bx bx-menu sidebarBtn'></i>
+        <span class="dashboard">Calendar</span>
+      </div>
+      <div class="search-box">
+        <input type="text" placeholder="Search...">
+        <i class='bx bx-search'></i>
+      </div>
+      <div class="profile-details">
+        <a href="adminpage.html" img src="">
+            <img src="user3.jpg" alt="">
+            <span class="adminpage">ABC</span>
+            <i class="bx bx-bell notification-icon"></i> 
+        </a>
+    </div>
+    </nav>
+
+    <div class="home-content">
+      <div class="calendar">
+        <div class="contact-button">
+          <a href="createnewtheme.html" class="btn">+Create New</a>
+          
+        </div>
+        <div class="calendar-header">
+          <i class="bx bx-chevron-left"></i>
+          <h2 id="monthYearDisplay">April 2024</h2>
+          <i class="bx bx-chevron-right"></i>
+        </div>
+        <div class="calendar-days">
+          <div class="day">Sun</div>
+          <div class="day">Mon</div>
+          <div class="day">Tue</div>
+          <div class="day">Wed</div>
+          <div class="day">Thu</div>
+          <div class="day">Fri</div>
+          <div class="day">Sat</div>
+        </div>
+        <div class="days">
+          <!-- Numbers of the month will be dynamically generated using JavaScript -->
+        </div>
+      </div>
+     
+    </div>
+    </div>
+  </section>
+
+  <script>
+    // Get current date
+    const currentDate = new Date();
+    let currentMonth = currentDate.getMonth();
+    let currentYear = currentDate.getFullYear();
+
+    // Function to display calendar
+    function displayCalendar(month, year) {
+      const calendarDays = document.querySelector('.days');
+      const monthYearDisplay = document.getElementById('monthYearDisplay');
+      // Clear previous calendar days
+      calendarDays.innerHTML = '';
+
+      // Set month and year display
+      monthYearDisplay.textContent = `${getMonthName(month)} ${year}`;
+
+      // Get the first day of the month
+      const firstDay = new Date(year, month, 1);
+      const startingDay = firstDay.getDay();
+
+      // Get the number of days in the month
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+      // Create calendar days
+      for (let i = 0; i < startingDay; i++) {
+        const emptyDay = document.createElement('div');
+        calendarDays.appendChild(emptyDay);
+      }
+
+      for (let i = 1; i <= daysInMonth; i++) {
+        const dayElement = document.createElement('div');
+        dayElement.textContent = i;
+        calendarDays.appendChild(dayElement);
+      }
+    }
+
+    // Get month name
+    function getMonthName(month) {
+      const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+      return months[month];
+    }
+
+    // Initial display
+    displayCalendar(currentMonth, currentYear);
+
+    // Navigation buttons
+    const prevMonthBtn = document.querySelector('.bx-chevron-left');
+    const nextMonthBtn = document.querySelector('.bx-chevron-right');
+
+    prevMonthBtn.addEventListener('click', () => {
+      currentMonth -= 1;
+      if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear -= 1;
+      }
+      displayCalendar(currentMonth, currentYear);
+    });
+
+    nextMonthBtn.addEventListener('click', () => {
+      currentMonth += 1;
+      if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear += 1;
+      }
+      displayCalendar(currentMonth, currentYear);
+    });
+  </script>
+</body>
+
+</html>

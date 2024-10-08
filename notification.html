@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<title>Responsive Admin Dashboard | CodingLab</title>
+<link rel="stylesheet" href="notification.css">
+<!-- Boxicons CDN Link -->
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  .card {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #0f0f0f;
+    background-color: #cd9ffa;
+    border-radius: 8px;
+    color: black;
+    margin-bottom: 20px;
+  }
+  
+  .card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-left: 20px;
+  }
+  
+  .card-content {
+    margin-left: 20px;
+   
+  }
+  
+  .name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .message {
+    font-size: 16px;
+    color: #000000;
+  }
+  .view-all-btn {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    background-color: #7a60ff;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .view-all-btn:hover {
+    background-color: #ddd;
+  }
+</style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <img src="logo19.png" style="width: 50px; height: 50px;"> 
+      <span class="logo_name">Virajo.in</span>
+    </div>
+    <ul class="nav-links">
+        <li>
+            <a href="dashboard.html" class="active">
+              <i class='bx bx-grid-alt' ></i>
+              <span class="links_name">Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="team.html">
+              <i class='bx bx-group' ></i>
+              <span class="links_name">Teams</span>
+            </a>
+          </li>
+          <li>
+            <a href="emploees.html">
+              <i class='bx bx-user'></i>
+              <span class="links_name">Employees</span>
+            </a>
+          </li>
+          <li>
+            <a href="attendance.html">
+              <i class='bx bx-calendar' ></i>
+              <span class="links_name">Attendance</span>
+            </a>
+          </li>
+          <li>
+            <a href="leave.html">
+              <i class='bx bx-calendar-event' ></i>
+              <span class="links_name">Leaves</span>
+            </a>
+          </li>
+          <li>
+            <a href="payment-list.html">
+              <i class='bx bx-dollar-circle' ></i>
+              <span class="links_name">Payment</span>
+            </a>
+          </li>
+          <li>
+            <a href="calendar.php.html">
+              <i class='bx bx-calendar' ></i>
+              <span class="links_name">Calendar</span>
+            </a>
+          </li>
+          <li>
+            <a href="report1.html">
+              <i class='bx bx-file' ></i>
+              <span class="links_name">Report</span>
+            </a>
+          </li>
+          <li>
+            <a href="notification.html">
+              <i class='bx bx-bell' ></i>
+              <span class="links_name">Notification</span>
+            </a>
+          </li>
+          <li>
+            <a href="settings.html">
+              <i class='bx bx-cog' ></i>
+              <span class="links_name">Setting</span>
+            </a>
+          </li>
+          <li class="log_out">
+            <a href="logut.html">
+              <i class='bx bx-log-out'></i>
+              <span class="links_name">Log out</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+  </div>
+  <section class="home-section">
+    
+    <nav>
+      <!-- Your existing navigation content -->
+      <nav>
+        <div class="sidebar-button">
+          <i class='bx bx-menu sidebarBtn'></i>
+          <span class="dashboard">Notification </span>
+        </div>
+        <div class="search-box">
+          <input type="text" placeholder="Search...">
+          <i class='bx bx-search' ></i>
+        </div>
+        <div class="profile-details">
+          <a href="adminpage.html" img src="">
+              <img src="user3.jpg" alt="">
+              <span class="adminpage">ABC</span>
+              <i class="bx bx-bell notification-icon"></i> 
+          </a>
+      </div>
+  </nav>
+    </nav>
+    <div class="home-content">
+      <div class="overview-boxes">
+        <!-- Card View -->
+        <div class="card">
+          <div class="card-content">
+            <div class="name">John Doe</div>
+            <div class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sodales eu urna nec faucibus.</div>
+          </div>
+          <img src="user2.jpg" alt="Profile Image">
+        </div>
+        <!-- Card View -->
+        <div class="card">
+          <div class="card-content">
+            <div class="name">Jane Smith</div>
+            <div class="message">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</div>
+          </div>
+          <img src="user1.jpg" alt="Profile Image">
+        </div>
+        <button class="view-all-btn">View All Notifications</button>
+        <!-- End of Card Views -->
+        <!-- Your existing content -->
+      </div>
+    </div>
+  </section>
+  <script>
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".sidebarBtn");
+    sidebarBtn.onclick = function() {
+      sidebar.classList.toggle("active");
+      if(sidebar.classList.contains("active")){
+        sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+      } else {
+        sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+      }
+    }
+  </script>
+</body>
+</html>

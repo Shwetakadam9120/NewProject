@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Management with Punch In/Out & Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .reminder-container, .calendar-container, .summary-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .summary-container {
+            order: -1; /* Move the summary box to the top */
+        }
+
+        h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .punch-reminder {
+            text-align: left;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .punch-reminder p {
+            margin: 0;
+            font-size: 16px;
+            color: #777;
+        }
+
+        .punch-reminder strong {
+            color: #333;
+        }
+
+        .btn {
+            background-color: #7a60ff; /* New color */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .btn:hover {
+            background-color: #5a46d9; /* A darker shade of #7a60ff */
+        }
+
+        .status {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .day-label {
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .day {
+            text-align: center;
+            padding: 15px 0;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .present {
+            background-color: #28a745;
+        }
+
+        .absent {
+            background-color: #dc3545;
+        }
+
+        .halfday {
+            background-color: #ffc107;
+        }
+
+        .empty {
+            background-color: #f4f4f4;
+        }
+
+        .summary-container h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .summary-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .summary-list li {
+            font-size: 18px;
+            margin: 5px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .badge {
+            background-color: #cd9ffa; /* New color */
+            color: white;
+            border-radius: 12px;
+            padding: 5px 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Attendance Summary -->
+        <div class="summary-container">
+            <h2>Attendance Summary</h2>
+            <h3>Statistics</h3>
+            <ul class="summary-list">
+                <li>Present <span class="badge" id="present-count">8</span></li>
+                <li>Absent <span class="badge" id="absent-count">3</span></li>
+                <li>Half Day <span class="badge" id="halfday-count">0</span></li>
+                <li>Paid Leave <span class="badge" id="paidleave-count">0</span></li>
+                <li>Week Off <span class="badge" id="weekoff-count">2</span></li>
+            </ul>
+        </div>
+
+        <!-- Attendance Reminder -->
+        <div class="reminder-container">
+            <h2>Attendance Reminder</h2>
+
+            <div class="punch-reminder">
+                <p><strong>Punch In Reminder:</strong> Don't forget to punch in before 9:00 AM.</p>
+                <p class="warning">Current Status: Not Punched In</p>
+            </div>
+
+            <input type="file" id="photoUpload" style="display:none;" accept="image/*">
+            <button class="btn" id="punchInBtn">Punch In</button>
+            <button class="btn" id="punchOutBtn" style="display:none;">Punch Out</button>
+
+            <div class="status">
+                <p>Status: <span id="status-text">Waiting for punch in...</span></p>
+            </div>
+        </div>
+
+        <!-- Attendance Calendar -->
+        <div class="calendar-container">
+            <h2>Attendance Calendar</h2>
+
+            <div class="calendar" id="calendar">
+                <!-- Days of the week labels -->
+                <div class="day-label">Sun</div>
+                <div class="day-label">Mon</div>
+                <div class="day-label">Tue</div>
+                <div class="day-label">Wed</div>
+                <div class="day-label">Thu</div>
+                <div class="day-label">Fri</div>
+                <div class="day-label">Sat</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const punchInBtn = document.getElementById("punchInBtn");
+        const punchOutBtn = document.getElementById("punchOutBtn");
+        const statusText = document.getElementById("status-text");
+        const photoUpload = document.getElementById("photoUpload");
+        const calendar = document.getElementById("calendar");
+
+        // Summary counts
+        const presentCount = document.getElementById("present-count");
+        const absentCount = document.getElementById("absent-count");
+        const halfdayCount = document.getElementById("halfday-count");
+        const paidleaveCount = document.getElementById("paidleave-count");
+        const weekoffCount = document.getElementById("weekoff-count");
+
+        // Mocked attendance data to update dynamically
+        let attendanceData = {
+            "01": "present", 
+            "02": "absent", 
+            "03": "present",
+            "04": "present",
+            "05": "weekoff",
+            "06": "present",
+            "07": "present",
+            "08": "absent",
+        };
+
+        // Calendar Generation Logic
+        function generateCalendar() {
+            const currentDate = new Date();
+            const currentYear = currentDate.getFullYear();
+            const currentMonth = currentDate.getMonth();
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayString = day < 10 ? "0" + day : day.toString();
+                const status = attendanceData[dayString] || "empty"; // Default to 'empty'
+
+                const dayElement = document.createElement("div");
+                dayElement.classList.add("day", status);
+                dayElement.innerText = dayString;
+                calendar.appendChild(dayElement);
+            }
+        }
+
+        // Punch In Button Action
+        punchInBtn.addEventListener("click", function() {
+            // Trigger photo upload
+            photoUpload.click();
+
+            photoUpload.onchange = function() {
+                const currentDay = new Date().getDate();
+                const dayString = currentDay < 10 ? "0" + currentDay : currentDay.toString();
+
+                // Update attendance data
+                attendanceData[dayString] = "present";
+
+                // Update the status
+                statusText.textContent = "You have punched in with a photo!";
+                statusText.style.color = "#28a745";
+
+                // Show Punch Out Button
+                punchOutBtn.style.display = "inline-block";
+                punchInBtn.style.display = "none";
+
+                // Regenerate the calendar
+                calendar.innerHTML = "";
+                generateCalendar();
+
+                // Update summary count
+                let presentCountValue = parseInt(presentCount.textContent) + 1;
+                presentCount.textContent = presentCountValue;
+            }
+        });
+
+        // Punch Out Button Action
+        punchOutBtn.addEventListener("click", function() {
+            // Trigger photo upload for punch out
+            photoUpload.click();
+
+            photoUpload.onchange = function() {
+                // Update the status
+                statusText.textContent = "You have punched out with a photo!";
+                statusText.style.color = "#dc3545";
+
+                // Hide Punch Out Button
+                punchOutBtn.style.display = "none";
+            }
+        });
+
+        // Initialize calendar on page load
+        window.onload = generateCalendar;
+    </script>
+</body>
+</html>

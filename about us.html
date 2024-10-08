@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles (Sticky Header) */
+        header {
+            background-color: #7a60ff;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .navbar-brand img {
+            width: 50px;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        header .cta-button {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        /* Login Image Section */
+        .login-section {
+            background-image: url('user3.jpg'); /* Replace with the correct image path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+        }
+
+  
+        /* About Me Section */
+        .about-me {
+            text-align: center;
+            padding: 50px;
+            background-color: #f9f9f9;
+        }
+
+        .about-me h2 {
+            color: #7a60ff;
+            margin-bottom: 20px;
+        }
+
+        .about-me p {
+            color: #333;
+            margin: 10px 0;
+        }
+
+        /* Card Style for About Section */
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .card h3 {
+            color: #7a60ff;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #333;
+        }
+
+        .card .vision {
+            background-color: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+        }
+
+        footer .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-section {
+            width: 200px;
+        }
+
+        footer a {
+            color: #cd9ffa;
+            text-decoration: none;
+        }
+
+        footer p {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <a class="navbar-brand" href="#">
+            <img src="logo19.png" alt="logo"> <!-- Logo Image -->
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="contact.html" class="cta-button">Log In</a>
+    </header>
+
+    <!-- Login Image Section -->
+    <section class="login-section">
+        <h2 class="heading-with-bg"></h2>
+    </section>
+
+    <!-- About Me Section with Cards -->
+    <section class="about-me">
+        <h2>Virajo AutoSoft Pvt.Ltd</h2>
+        <p>Virajo AutoSoft is an IT service company that specializes in helping businesses reach their potential.</p>
+        <p>We work with our clients to understand their unique needs and aspirations, and then provide them with the resources and support they need to achieve their goals.</p>
+        <!-- Card Container -->
+        <div class="card-container">
+            <div class="card">
+                <img src="images6.jpg" alt="Our Vision Image" style="width:100%; height:auto; border-radius: 10px;"> <!-- Vision Image -->
+                <h3>Our Vision</h3>
+                <p>Our journey began with a dream of redefining how the world perceives design.</p>
+                <p>From sleek modernism to timeless elegance, we infuse every creation with a touch of our artistic ingenuity. As a design agency, great design can shape perceptions, inspire action, and leave an indelible mark on the world.</p>
+            </div>
+
+            <div class="card">
+                <img src="images6.jpg" alt="Our Approach Image" style="width:100%; height:auto; border-radius: 10px;"> <!-- Approach Image -->
+                <h3>Our Approach</h3>
+                <p>Welcome to our design agency, where creativity knows no bounds and innovation takes center stage.</p>
+                <p>We are a team of dedicated designers, strategists, and visionaries with a passion for transforming ideas into captivating visuals.</p>
+            </div>
+
+            <div class="card">
+                <img src="images6.jpg" alt="Virajo AutoSoft" style="width:100%; height:auto; border-radius: 10px;"> <!-- Company Image -->
+                <h3>Virajo AutoSoft Pvt. Ltd</h3>
+                <p>Virajo AutoSoft is an IT service company that specializes in helping businesses reach their potential.</p>
+                <p>We work with our clients to understand their unique needs and provide the resources they need to achieve their goals.</p>
+            </div>
+        </div>
+    </section>
+
+     <!-- Footer Section -->
+     <footer>
+        <!-- Footer Section -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>About Us</h4>
+            <p>Virajo AutoSoft is an IT service company that specializes in helping businesses reach their potential. We work with our clients to understand their unique needs and aspirations, and then provide them with the resources and support they need to achieve their goals.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Useful Links</h4>
+            <p><a href="index.html">Home</a></p>
+            <p><a href="about us.html">About Us</a></p>
+            <p><a href="services.html">Services</a></p>
+            <p><a href="contact.html">Contact Us</a></p>
+        </div>
+        <div class="footer-section">
+            <h4>Contact Info</h4>
+            <p>WhatsApp: +91-9971497379</p>
+            <p>Email: sales@virajo.in</p>
+            <p>Reg. Office: F-14 S/F Gali No.-2, Main 25, Foota Road, Khajoori Khas, Delhi North East, DL 110094, IN</p>
+            <p>Corp Office: 217, One Mall, Survey No 22/2, Aundh-Ravet BRTS Road, Ravet, Pune 412101, MH</p>
+        </div>
+</footer>
+        <p>&copy; 2024 Virajo AutoSoft Pvt. Ltd. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Profile Update</title>
+  <link rel="stylesheet" href="style.css"> <!-- External CSS -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      margin-bottom: 10px;
+      color: #007bff;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form-group input[type="file"] {
+      padding: 0;
+    }
+
+    .submit-btn {
+      text-align: center;
+    }
+
+    .submit-btn input {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-btn input:hover {
+      background-color: #0056b3;
+    }
+
+    .profile-pic {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .profile-pic img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .profile-pic input {
+      margin-top: 10px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Update Employee Profile</h1>
+
+    <div class="section">
+      <h2>Profile Picture</h2>
+      <div class="profile-pic">
+        <img src="default-profile.png" alt="Employee Picture">
+        <input type="file" accept="image/*">
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Basic Details</h2>
+      <div class="form-group">
+        <label for="name">Employee Name:</label>
+        <input type="text" id="name" placeholder="Enter Employee Name">
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" placeholder="Enter Phone Number">
+      </div>
+      <div class="form-group">
+        <label for="department">Department:</label>
+        <select id="department">
+          <option value="HR">HR</option>
+          <option value="Sales">Sales</option>
+          <option value="Engineering">Engineering</option>
+          <option value="Marketing">Marketing</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Personal Details</h2>
+      <div class="form-group">
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob">
+      </div>
+      <div class="form-group">
+        <label for="address">Address:</label>
+        <textarea id="address" rows="4" placeholder="Enter Address"></textarea>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Current Employment</h2>
+      <div class="form-group">
+        <label for="position">Position:</label>
+        <input type="text" id="position" placeholder="Enter Position">
+      </div>
+      <div class="form-group">
+        <label for="startdate">Start Date:</label>
+        <input type="date" id="startdate">
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Custom Details</h2>
+      <div class="form-group">
+        <label for="custom">Additional Info:</label>
+        <textarea id="custom" rows="3" placeholder="Enter Custom Details"></textarea>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Attendance Details</h2>
+      <div class="form-group">
+        <label for="attendancescore">Attendance Score:</label>
+        <input type="number" id="attendancescore" min="0" max="100" placeholder="Enter Attendance Score">
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Bank Details</h2>
+      <div class="form-group">
+        <label for="bankname">Bank Name:</label>
+        <input type="text" id="bankname" placeholder="Enter Bank Name">
+      </div>
+      <div class="form-group">
+        <label for="accountnumber">Account Number:</label>
+        <input type="text" id="accountnumber" placeholder="Enter Account Number">
+      </div>
+      <div class="form-group">
+        <label for="ifsc">IFSC Code:</label>
+        <input type="text" id="ifsc" placeholder="Enter IFSC Code">
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>User Permissions</h2>
+      <div class="form-group">
+        <label for="permissions">User Role:</label>
+        <select id="permissions">
+          <option value="Admin">Admin</option>
+          <option value="Manager">Manager</option>
+          <option value="Employee">Employee</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="submit-btn">
+      <input type="submit" value="Update Employee">
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Employee Details</title>
+  <style>
+      /* Resetting default browser styles */
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f4f4f4;
+          color: #333;
+      }
+
+      .container {
+          max-width: 1000px;
+          margin: 40px auto;
+          background-color: #fff;
+          padding: 30px;
+          border-radius: 8px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+          text-align: center;
+          margin-bottom: 30px;
+          color: #333;
+      }
+
+      table {
+          width: 100%;
+          border-collapse: collapse;
+      }
+
+      th, td {
+          padding: 12px 15px;
+          text-align: center;
+          border-bottom: 1px solid #ddd;
+      }
+
+      th {
+          background-color: #f9f9f9;
+          color: #333;
+      }
+
+      tr:nth-child(even) {
+          background-color: #f2f2f2;
+      }
+
+      /* Button Styling */
+      .button {
+          padding: 10px 20px;
+          background-color: #7a60ff; /* Default Button Color */
+          color: #fff;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          margin: 5px; /* Space between buttons */
+          transition: background-color 0.3s ease;
+          font-size: 14px;
+      }
+
+      .button:hover {
+          background-color: #cd9ffa; /* Hover Button Color */
+      }
+
+      /* Image Styling */
+      img {
+          max-width: 100px;
+          height: auto;
+          border-radius: 5px;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+          .container {
+              padding: 20px;
+          }
+
+          th, td {
+              padding: 10px;
+          }
+
+          .button {
+              padding: 8px 16px;
+              font-size: 12px;
+          }
+      }
+
+      @media (max-width: 480px) {
+          table, thead, tbody, th, td, tr {
+              display: block;
+          }
+
+          th {
+              position: absolute;
+              top: -9999px;
+              left: -9999px;
+          }
+
+          tr {
+              margin-bottom: 15px;
+          }
+
+          td {
+              border: none;
+              position: relative;
+              padding-left: 50%;
+              text-align: left;
+          }
+
+          td:before {
+              position: absolute;
+              top: 12px;
+              left: 15px;
+              width: 45%;
+              padding-right: 10px;
+              white-space: nowrap;
+              font-weight: bold;
+          }
+
+          /* Labeling each cell */
+          td:nth-of-type(1):before { content: "Name"; }
+          td:nth-of-type(2):before { content: "Image"; }
+          td:nth-of-type(3):before { content: "Department"; }
+          td:nth-of-type(4):before { content: "Status"; }
+          td:nth-of-type(5):before { content: "Action"; }
+          td:nth-of-type(6):before { content: "Send Message"; }
+      }
+  </style>
+</head>
+<body>
+  <div class="container">
+      <h1>Employee Details</h1>
+      <table>
+          <thead>
+              <tr>
+                  <th>Name</th>
+                  <th>Image</th>
+                  <th>Department</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                  <th>Send Message</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>Vuitton Sunglasses</td>
+                  <td><img src="images.png" alt="Employee Image"></td>
+                  <td>HR</td>
+                  <td>Active</td>
+                  <td><button class="button">Edit</button></td>
+                  <td>
+                      <button class="button" onclick="sendEmail()">Send Email</button>
+                      <button class="button" onclick="sendSMS()">Send SMS</button>
+                  </td>
+              </tr>
+              <!-- Example of an additional employee row -->
+              <tr>
+                  <td>Alex Doe</td>
+                  <td><img src="images.png" alt="Employee Image"></td>
+                  <td>Engineering</td>
+                  <td>Active</td>
+                  <td><button class="button">Edit</button></td>
+                  <td>
+                      <button class="button" onclick="sendEmail()">Send Email</button>
+                      <button class="button" onclick="sendSMS()">Send SMS</button>
+                  </td>
+              </tr>
+              <!-- Add more rows as needed -->
+          </tbody>
+      </table>
+  </div>
+
+  <script>
+      function sendEmail() {
+          // Implement email sending functionality here
+          alert("Email sent successfully!");
+      }
+
+      function sendSMS() {
+          // Implement SMS sending functionality here
+          alert("SMS sent successfully!");
+      }
+  </script>
+</body>
+</html>

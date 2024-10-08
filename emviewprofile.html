@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="file"] {
+            padding: 0;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            display: none;
+        }
+
+        .success {
+            color: green;
+            font-size: 14px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Employee Management System</h1>
+        
+        <!-- Employee Image Upload -->
+        <section class="employee-image">
+            <h2>Update Employee Image</h2>
+            <input type="file" accept="image/*" id="employee-image">
+            <div id="image-error" class="error">Please upload an image.</div>
+        </section>
+
+        <!-- Employee Personal Details -->
+        <section class="employee-details">
+            <h2>Employee Personal Details</h2>
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter Employee Name">
+            
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" placeholder="Enter Phone Number">
+            
+            <label for="department">Department:</label>
+            <input type="text" id="department" placeholder="Enter Department">
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter Email">
+        </section>
+
+        <!-- Current Employment Details -->
+        <section class="current-employment">
+            <h2>Current Employment</h2>
+            <label for="designation">Designation:</label>
+            <input type="text" id="designation" placeholder="Enter Designation">
+
+            <label for="doj">Date of Joining:</label>
+            <input type="date" id="doj">
+        </section>
+
+        <!-- Custom Details -->
+        <section class="custom-details">
+            <h2>Custom Details</h2>
+            <textarea id="custom-details" placeholder="Enter Custom Details"></textarea>
+        </section>
+
+        <!-- Attendance Details -->
+        <section class="attendance-details">
+            <h2>Attendance Details</h2>
+            <label for="total-days">Total Days:</label>
+            <input type="number" id="total-days" placeholder="Enter Total Working Days">
+
+            <label for="present-days">Present Days:</label>
+            <input type="number" id="present-days" placeholder="Enter Days Present">
+        </section>
+
+        <!-- Bank Details -->
+        <section class="bank-details">
+            <h2>Bank Details</h2>
+            <label for="bank-name">Bank Name:</label>
+            <input type="text" id="bank-name" placeholder="Enter Bank Name">
+            
+            <label for="account-number">Account Number:</label>
+            <input type="text" id="account-number" placeholder="Enter Account Number">
+
+            <label for="ifsc-code">IFSC Code:</label>
+            <input type="text" id="ifsc-code" placeholder="Enter IFSC Code">
+        </section>
+
+        <!-- User Permissions -->
+        <section class="user-permissions">
+            <h2>User Permissions</h2>
+            <label>
+                <input type="checkbox" name="employee" id="employee"> Employee Role
+            </label>
+        </section>
+
+        <button type="submit" id="save-btn">Save Details</button>
+        <div id="form-success" class="success">Form submitted successfully!</div>
+    </div>
+
+    <script>
+        document.getElementById('save-btn').addEventListener('click', function(event) {
+            event.preventDefault();
+
+            const imageInput = document.getElementById('employee-image');
+            const imageError = document.getElementById('image-error');
+            const formSuccess = document.getElementById('form-success');
+
+            if (!imageInput.value) {
+                imageError.style.display = 'block';
+            } else {
+                imageError.style.display = 'none';
+                formSuccess.style.display = 'block';
+                setTimeout(() => {
+                    formSuccess.style.display = 'none';
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>

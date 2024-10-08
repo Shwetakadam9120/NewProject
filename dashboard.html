@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<!-- Coding by CodingNepal | www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Responsive Admin Dashboard | CodingLab</title>
+    <link rel="stylesheet" href="style3.css">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      /* Optional: Style for No Results Message */
+      #no-results {
+        padding: 20px;
+        text-align: center;
+        font-size: 18px;
+        color: #555;
+      }
+
+      /* Optional: Additional Styles for Better Visibility */
+      .search-box input {
+        padding: 8px 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 200px;
+      }
+
+      .search-box i {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #888;
+      }
+
+      /* Adjustments for Responsive Design */
+      @media (max-width: 768px) {
+        .search-box input {
+          width: 150px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="logo-details">
+        <img src="logo19.png" style="width: 50px; height: 50px;" alt="Logo">
+        <span class="logo_name">Virajo.in</span>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a href="#" class="active">
+            <i class='bx bx-grid-alt'></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="team.html">
+            <i class='bx bx-group'></i>
+            <span class="links_name">Teams</span>
+          </a>
+        </li>
+        <li>
+          <a href="empltable.php">
+            <i class='bx bx-user'></i>
+            <span class="links_name">Employees</span>
+          </a>
+        </li>
+        <li>
+          <a href="attendance.php.html">
+            <i class='bx bx-calendar'></i>
+            <span class="links_name">Attendance</span>
+          </a>
+        </li>
+        <li>
+          <a href="leave.html">
+            <i class='bx bx-calendar-event'></i>
+            <span class="links_name">Leaves</span>
+          </a>
+        </li>
+        <li>
+          <a href="payment-list.html">
+            <i class='bx bx-dollar-circle'></i>
+            <span class="links_name">Payment</span>
+          </a>
+        </li>
+        <li>
+          <a href="calendar.php.html">
+            <i class='bx bx-calendar'></i>
+            <span class="links_name">Calendar</span>
+          </a>
+        </li>
+        <li>
+          <a href="report1.html">
+            <i class='bx bx-file'></i>
+            <span class="links_name">Report</span>
+          </a>
+        </li>
+        <li>
+          <a href="notification.html">
+            <i class='bx bx-bell'></i>
+            <span class="links_name">Notification</span>
+          </a>
+        </li>
+        <li>
+          <a href="settings.html">
+            <i class='bx bx-cog'></i>
+            <span class="links_name">Settings</span>
+          </a>
+        </li>
+        <li class="log_out">
+          <a href="logut.html">
+            <i class='bx bx-log-out'></i>
+            <span class="links_name">Log out</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <section class="home-section">
+      <nav>
+        <div class="sidebar-button">
+          <i class='bx bx-menu sidebarBtn'></i>
+          <span class="dashboard">Dashboard</span>
+        </div>
+        <div class="search-box" style="position: relative;">
+          <input type="text" placeholder="Search..." aria-label="Search">
+          <i class='bx bx-search'></i>
+        </div>
+        <div class="profile-details">
+          <a href="adminpage.html">
+            <img src="user3.jpg" alt="User Image">
+            <span class="adminpage">ABC</span>
+            <i class="bx bx-bell notification-icon"></i>
+          </a>
+        </div>
+      </nav>
+
+      <div class="home-content">
+        <!-- Overview Boxes -->
+        <div class="overview-boxes">
+          <div class="box" data-name="Total Employed">
+            <div class="right-side">
+              <div class="box-topic">Total Employed</div>
+              <div class="number">40,876</div>
+              <div class="indicator">
+                <i class='bx bx-up-arrow-alt'></i>
+                <span class="text">Today</span>
+              </div>
+            </div>
+            <!-- Optional: Add an icon or graphic here -->
+          </div>
+          <div class="box" data-name="New Employed">
+            <div class="right-side">
+              <div class="box-topic">New Employed</div>
+              <div class="number">30</div>
+              <div class="indicator">
+                <i class='bx bx-up-arrow-alt'></i>
+                <span class="text">Today</span>
+              </div>
+            </div>
+          </div>
+          <div class="box" data-name="Net Salary">
+            <div class="right-side">
+              <div class="box-topic">Net Salary</div>
+              <div class="number">$12,876</div>
+              <div class="indicator">
+                <i class='bx bx-up-arrow-alt'></i>
+                <span class="text">Yesterday</span>
+              </div>
+            </div>
+          </div>
+          <div class="box" data-name="Expenses">
+            <div class="right-side">
+              <div class="box-topic">Expenses</div>
+              <div class="number">$11,086</div>
+              <div class="indicator">
+                <i class='bx bx-down-arrow-alt down'></i>
+                <span class="text">Today</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sales Boxes -->
+        <div class="sales-boxes">
+          <!-- Employees Onboarding Section -->
+          <div class="recent-sales box" data-name="Employees Onboarding">
+            <div class="title">Employees Onboarding</div>
+            <div class="sales-details">
+              <ul class="details">
+                <li class="topic">Date</li>
+                <li><a href="#">02 April 2024</a></li>
+                <li><a href="#">02 April 2024</a></li>
+                <li><a href="#">02 April 2024</a></li>
+              </ul>
+              <ul class="details">
+                <li class="topic">Employee</li>
+                <li><a href="#">Alex Doe</a></li>
+                <li><a href="#">David Mart</a></li>
+                <li><a href="#">Roe Parter</a></li>
+              </ul>
+              <ul class="details">
+                <li class="topic">Position</li>
+                <li><a href="#">HR</a></li>
+                <li><a href="#">UI Designer</a></li>
+                <li><a href="#">System Engineer</a></li>
+              </ul>
+              <ul class="details">
+                <li class="topic">Status</li>
+                <li><a href="#">Pending</a></li>
+                <li><a href="#">Pending</a></li>
+                <li><a href="#">Pending</a></li>
+              </ul>
+            </div>
+            <div class="button">
+              <a href="empltable.php">See All</a>
+            </div>
+          </div>
+
+          <!-- Happy Birthday Section -->
+          <div class="top-sales box" data-name="Happy Birthday">
+            <div class="title">Happy Birthday</div>
+            <ul class="top-sales-details">
+              <li>
+                <a href="happywish.html">
+                  <img src="images.png" alt="Vuitton Sunglasses">
+                  <span class="product">Vuitton Sunglasses</span>
+                </a>
+                <div class="birthday-icon">🎉</div>
+              </li>
+              <li>
+                <a href="happywish.html">
+                  <img src="images.png" alt="Hourglass Jeans">
+                  <span class="product">Hourglass Jeans</span>
+                </a>
+                <div class="birthday-icon">🎉</div>
+              </li>
+              <li>
+                <a href="happywish.html">
+                  <img src="images.png" alt="Nike Sport Shoe">
+                  <span class="product">Nike Sport Shoe</span>
+                </a>
+                <div class="birthday-icon">🎉</div>
+              </li>
+              <li>
+                <a href="happywish.html">
+                  <img src="images.png" alt="Hermes Silk Scarves">
+                  <span class="product">Hermes Silk Scarves</span>
+                </a>
+                <div class="birthday-icon">🎉</div>
+              </li>
+              <li>
+                <a href="happywish.html">
+                  <img src="images.png" alt="Black Wear's Shirt">
+                  <span class="product">Black Wear's Shirt</span>
+                </a>
+                <div class="birthday-icon">🎉</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JavaScript for Sidebar Toggle and Search Functionality -->
+    <script>
+      // Sidebar Toggle Functionality
+      let sidebar = document.querySelector(".sidebar");
+      let sidebarBtn = document.querySelector(".sidebarBtn");
+      sidebarBtn.onclick = function() {
+        sidebar.classList.toggle("active");
+        if (sidebar.classList.contains("active")) {
+          sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+        } else {
+          sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+        }
+      }
+
+      // Search Functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const searchBox = document.querySelector('.search-box input');
+        const boxes = document.querySelectorAll('.overview-boxes .box, .recent-sales.box, .top-sales.box');
+
+        searchBox.addEventListener('keyup', function(event) {
+          const query = event.target.value.toLowerCase().trim();
+
+          boxes.forEach(function(box) {
+            const name = box.getAttribute('data-name').toLowerCase();
+            if (name.includes(query)) {
+              box.style.display = 'block';
+            } else {
+              box.style.display = 'none';
+            }
+          });
+
+          // Handle No Results
+          const visibleBoxes = Array.from(boxes).filter(box => box.style.display === 'block');
+          if (visibleBoxes.length === 0 && query !== "") {
+            showNoResultsMessage();
+          } else {
+            removeNoResultsMessage();
+          }
+        });
+
+        function showNoResultsMessage() {
+          if (!document.getElementById('no-results')) {
+            const noResults = document.createElement('div');
+            noResults.id = 'no-results';
+            noResults.textContent = 'No results found.';
+            noResults.style.padding = '20px';
+            noResults.style.textAlign = 'center';
+            noResults.style.fontSize = '18px';
+            noResults.style.color = '#555';
+            document.querySelector('.home-content').appendChild(noResults);
+          }
+        }
+
+        function removeNoResultsMessage() {
+          const noResults = document.getElementById('no-results');
+          if (noResults) {
+            noResults.remove();
+          }
+        }
+      });
+    </script>
+
+  </body>
+</html>

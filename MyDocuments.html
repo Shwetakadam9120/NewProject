@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Type Selector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .document-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            font-size: 16px;
+            color: #333;
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+        .select-arrow {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+        .select-arrow::after {
+            content: '\25BC'; /* Unicode for down arrow */
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #333;
+            pointer-events: none; /* Prevents interfering with the select */
+        }
+        .add-btn {
+            background-color: #7a60ff; /* Primary color */
+            color: white;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .add-btn:hover {
+            background-color: #5a46d9; /* Darker shade of the primary color */
+        }
+        /* Additional actions for all documents */
+        .document-options {
+            display: none;
+            margin-top: 20px;
+        }
+        .document-options button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            background-color: #cd9ffa; /* Secondary color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .document-options button:hover {
+            background-color: #a57eda; /* Darker shade of the secondary color */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <h2>Select Document Type</h2>
+        <div class="form-group">
+            <label for="document-type">Please select a document type:</label>
+            <div class="select-arrow">
+                <select id="document-type" onchange="checkDocumentType()">
+                    <option value="">Select a document type</option>
+                    <option value="aadhar">Aadhar</option>
+                    <option value="address-proof">Address Proof</option>
+                    <option value="background-verification">Background Verification</option>
+                    <option value="bank-account-details">Bank Account Details</option>
+                    <option value="degrees">Degrees</option>
+                    <option value="driving-license">Driving License</option>
+                    <option value="employment-contract">Employment Contract</option>
+                    <option value="pan-card">Pan Card</option>
+                    <option value="police-verification">Police Verification</option>
+                    <option value="salary-slip">Salary Slip</option>
+                    <option value="previous-employment-documents">Previous Employment Documents</option>
+                    <option value="voter-id">Voter ID</option>
+                    <option value="verification-report">Verification Report</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+        </div>
+        <button class="add-btn">Add Document</button>
+
+        <!-- Additional options for all documents -->
+        <div class="document-options" id="document-options">
+            <button onclick="uploadDocument()">Upload Document</button>
+            <button onclick="takePicture()">Take a Picture</button>
+            <button onclick="chooseFromGallery()">Choose from Gallery</button>
+        </div>
+    </div>
+
+    <script>
+        function checkDocumentType() {
+            const documentType = document.getElementById('document-type').value;
+            const documentOptions = document.getElementById('document-options');
+            
+            // Show the additional options if any document type is selected
+            if (documentType) {
+                documentOptions.style.display = 'block';
+            } else {
+                documentOptions.style.display = 'none';
+            }
+        }
+
+        function uploadDocument() {
+            alert('Upload Document clicked');
+            // Implement functionality for uploading a file here
+        }
+
+        function takePicture() {
+            alert('Take a Picture clicked');
+            // Implement functionality for taking a picture here
+        }
+
+        function chooseFromGallery() {
+            alert('Choose from Gallery clicked');
+            // Implement functionality for choosing from the gallery here
+        }
+    </script>
+
+</body>
+</html>

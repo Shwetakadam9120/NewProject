@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            margin: 40px auto; /* Added top margin for better spacing */
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .back-btn {
+            font-size: 20px;
+            color: #7a60ff; /* Primary purple */
+            text-align: left;
+            cursor: pointer;
+            margin-bottom: 20px; /* Spacing below the back button */
+        }
+
+        .profile-section {
+            position: relative;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 20px 0;
+            border: 3px solid #7a60ff; /* Purple border */
+        }
+
+        .camera-icon {
+            position: absolute;
+            top: 85px;
+            left: 50px; /* Move the icon to the left side */
+            background-color: #cd9ffa; /* Secondary purple */
+            padding: 8px;
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            font-size: 20px;
+            color: #7a60ff; /* Primary purple */
+            cursor: pointer;
+        }
+
+        #file-input {
+            display: none;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 10px 0;
+            color: #7a60ff; /* Primary purple */
+        }
+
+        p {
+            color: #777;
+            margin: 5px 0;
+        }
+
+        .details {
+            margin: 20px 0;
+            background-color: #cd9ffa; /* Secondary purple */
+            border-radius: 10px;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .details ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .details li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .details li:hover {
+            background-color: #e0d4ff; /* Light purple hover effect */
+        }
+
+        .details li:last-child {
+            border-bottom: none;
+        }
+
+        .details li h3 {
+            font-size: 16px;
+            color: #333;
+            margin: 0;
+        }
+
+        .details li .new-tag {
+            background-color: #7a60ff; /* Primary purple */
+            color: white;
+            padding: 2px 5px;
+            font-size: 10px;
+            border-radius: 5px;
+        }
+
+        .details li .icon {
+            font-size: 20px;
+            color: #7a60ff; /* Primary purple */
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border: 2px solid #7a60ff; /* Purple border */
+            border-radius: 10px; /* Rounded corners */
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #7a60ff; /* Primary purple */
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn-save {
+            margin-top: 10px;
+            background-color: #7a60ff; /* Primary purple */
+            color: white;
+            padding: 10px 15px;
+            border: none; /* Removed border */
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-save:hover {
+            background-color: #6a50e6; /* Darker purple on hover */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 500px) {
+            .container {
+                margin: 20px;
+                padding: 15px;
+            }
+
+            .modal-content {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-section">
+            <div style="position: relative;">
+                <img id="profileImage" src="your-image-url-here.jpg" alt="Profile Image" class="profile-img">
+                <div class="camera-icon" onclick="document.getElementById('file-input').click();">&#x1F4F7;</div>
+                <input type="file" id="file-input" accept="image/*" onchange="previewImage(event)">
+            </div>
+            <h1>Shweta Kadam</h1>
+            <p>91-7219057297</p>
+            <p>Jr. System Engineer</p>
+        </div>
+        
+        <div class="details">
+            <ul>
+                <li onclick="openModal('personalDetailsModal')">
+                    <h3>Personal Details</h3>
+                    <span class="icon">&#x1F464;</span>
+                </li>
+                <li onclick="openModal('employmentModal')">
+                    <h3>Current Employment</h3>
+                    <span class="icon">&#x1F4BC;</span>
+                </li>
+                <li onclick="openModal('customDetailsModal')">
+                    <h3>Custom Details</h3>
+                    <span class="new-tag">New</span>
+                </li>
+                <li onclick="openModal('attendanceModal')">
+                    <h3>Attendance Details</h3>
+                    <span class="icon">&#x1F4CB;</span>
+                </li>
+                <li onclick="openModal('bankModal')">
+                    <h3>Bank Details</h3>
+                    <span class="icon">&#x1F3E6;</span>
+                </li>
+                <li>
+                    <h3>User Permission</h3>
+                    <span>Employee</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modals for each section -->
+    <!-- Personal Details Modal -->
+    <div id="personalDetailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('personalDetailsModal')">&times;</span>
+            <h2>Personal Details</h2>
+            <div class="form-group">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" placeholder="Enter full name">
+            </div>
+            <div class="form-group">
+                <label for="mobileNumber">Mobile Number:</label>
+                <input type="text" id="mobileNumber" placeholder="Enter mobile number">
+            </div>
+            <div class="form-group">
+                <label for="personalMobileNumber">Personal Mobile Number:</label>
+                <input type="text" id="personalMobileNumber" placeholder="Enter personal mobile number">
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <input type="text" id="gender" placeholder="Enter gender">
+            </div>
+            <div class="form-group">
+                <label for="maritalStatus">Marital Status:</label>
+                <input type="text" id="maritalStatus" placeholder="Enter marital status">
+            </div>
+            <div class="form-group">
+                <label for="bloodGroup">Blood Group:</label>
+                <input type="text" id="bloodGroup" placeholder="Enter blood group">
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" placeholder="Enter address">
+            </div>
+            <button class="btn-save" onclick="savePersonalDetails()">Save</button>
+        </div>
+    </div>
+
+    <script>
+        function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function(){
+                var output = document.getElementById('profileImage');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function savePersonalDetails() {
+            // Code to save personal details
+            closeModal('personalDetailsModal');
+        }
+    </script>
+</body>
+</html>

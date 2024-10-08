@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="cssempltable3.css"> <!-- Assuming 'css' is the directory name -->
+  <!-- Boxicons CDN Link --> 
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Management</title>
+  <style>
+    .status-circle {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .status-active {
+      background-color: green;
+    }
+    .status-inactive {
+      background-color: red;
+    }
+    .button a {
+      margin-right: 15px; /* Add space between the "Add Employee" and "Registration" buttons */
+      display: inline-block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: white;
+      background-color: #007bff; /* Change this to your preferred button color */
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .button a:hover {
+      background-color: #0056b3; /* Change this to your preferred hover color */
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <img src="logo19.png" style="width: 50px; height: 50px;"> 
+      <span class="logo_name">Virajo.in</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="#" class="active">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="team.html">
+          <i class='bx bx-group'></i>
+          <span class="links_name">Teams</span>
+        </a>
+      </li>
+      <li>
+        <a href="employees.html">
+          <i class='bx bx-user'></i>
+          <span class="links_name">Employees</span>
+        </a>
+      </li>
+      <li>
+        <a href="attendance.html">
+          <i class='bx bx-calendar'></i>
+          <span class="links_name">Attendance</span>
+        </a>
+      </li>
+      <li>
+        <a href="leave.html">
+          <i class='bx bx-calendar-event'></i>
+          <span class="links_name">Leaves</span>
+        </a>
+      </li>
+      <li>
+        <a href="payment-list.html">
+          <i class='bx bx-dollar-circle'></i>
+          <span class="links_name">Payment</span>
+        </a>
+      </li>
+      <li>
+        <a href="calendar.html">
+          <i class='bx bx-calendar'></i>
+          <span class="links_name">Calendar</span>
+        </a>
+      </li>
+      <li>
+        <a href="report.html">
+          <i class='bx bx-file'></i>
+          <span class="links_name">Report</span>
+        </a>
+      </li>
+      <li>
+        <a href="notification.html">
+          <i class='bx bx-bell'></i>
+          <span class="links_name">Notification</span>
+        </a>
+      </li>
+      <li>
+        <a href="settings.html">
+          <i class='bx bx-cog'></i>
+          <span class="links_name">Setting</span>
+        </a>
+      </li>
+      <li class="log_out">
+        <a href="logout.html">
+          <i class='bx bx-log-out'></i>
+          <span class="links_name">Log out</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='bx bx-menu sidebarBtn'></i>
+        <span class="dashboard">Employee</span>
+      </div>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <i class='bx bx-search'></i>
+      </div>
+      <div class="profile-details">
+        <a href="adminpage.html">
+          <img src="user3.jpg" alt="">
+          <span class="adminpage">ABC</span>
+          <i class="bx bx-bell notification-icon"></i> 
+        </a>
+      </div>
+    </nav>
+
+    <div class="home-content">
+      <div class="overview-boxes">
+        <!-- Overview Boxes Here -->
+      </div>
+
+      <div class="sales-boxes">
+        <div class="recent-sales box">
+          <div class="title">Employee</div>
+          <div class="sales-details">
+            <table id="employeeTable">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Department</th>
+                  <th>Edit</th>
+                  <th>View Profile</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>John Doe</td>
+                  <td>john.doe@example.com</td>
+                  <td>(123) 456-7890</td>
+                  <td>Sales</td>
+                  <td><a href="empldit.html">Edit</a></td>
+                  <td><a href="tviewprofile.html">View</a></td>
+                  <td><span class="status-circle status-active"></span></td>
+                </tr>
+                <tr>
+                  <td>Jane Smith</td>
+                  <td>jane.smith@example.com</td>
+                  <td>(234) 567-8901</td>
+                  <td>Marketing</td>
+                  <td><a href="empldit.html">Edit</a></td>
+                  <td><a href="tviewprofile.html">View</a></td>
+                  <td><span class="status-circle status-inactive"></span></td>
+                </tr>
+                <tr>
+                  <td>Emily Johnson</td>
+                  <td>emily.johnson@example.com</td>
+                  <td>(345) 678-9012</td>
+                  <td>HR</td>
+                  <td><a href="empldit.html">Edit</a></td>
+                  <td><a href="tviewprofile.html">View</a></td>
+                  <td><span class="status-circle status-active"></span></td>
+                </tr>
+                <tr>
+                  <td>Michael Brown</td>
+                  <td>michael.brown@example.com</td>
+                  <td>(456) 789-0123</td>
+                  <td>Engineering</td>
+                  <td><a href="empldit.html">Edit</a></td>
+                  <td><a href="tviewprofile.html">View</a></td>
+                  <td><span class="status-circle status-active"></span></td>
+                </tr>
+                <tr>
+                  <td>Sarah Davis</td>
+                  <td>sarah.davis@example.com</td>
+                  <td>(567) 890-1234</td>
+                  <td>Finance</td>
+                  <td><a href="empldit.html">Edit</a></td>
+                  <td><a href="tviewprofile.html">View</a></td>
+                  <td><span class="status-circle status-inactive"></span></td>
+                </tr>
+                <tr>
+                  <td>David Wilson</td>
+                  <td>david.wilson@example.com</td>
+                  <td>(678) 901-2345</td>
+                  <td>Product</td>
+                  <td><a href="empldit.html">Edit</a></td>
+                  <td><a href="tviewprofile.html">View</a></td>
+                  <td><span class="status-circle status-active"></span></td>
+                </tr>
+                <tr>
+                  <td>Laura Lee</td>
+                  <td>laura.lee@example.com</td>
+                  <td>(789) 012-3456</td>
+                  <td>Design</td>
+                  <td><a href="empldit.html">Edit</a></td>
+                  <td><a href="tviewprofile.html">View</a></td>
+                  <td><span class="status-circle status-inactive"></span></td>
+                </tr>
+                <tr>
+                  <td>Chris Martinez</td>
+                  <td>chris.martinez@example.com</td>
+                  <td>(890) 123-4567</td>
+                  <td>Support</td>
+                  <td><a href="empldit.html">Edit</a></td>
+                  <td><a href="tviewprofile.html">View</a></td>
+                  <td><span class="status-circle status-active"></span></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="button">
+            
+              <a href="newemplRegistration.html">Add Employee</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Search functionality
+    document.getElementById("searchInput").addEventListener("input", function () {
+      var searchValue = this.value.toLowerCase();
+      var table = document.getElementById("employeeTable");
+      var rows = table.getElementsByTagName("tr");
+
+      for (var i = 1; i < rows.length; i++) {
+        var cells = rows[i].getElementsByTagName("td");
+        var name = cells[0].innerText.toLowerCase();
+        rows[i].style.display = name.includes(searchValue) ? "" : "none";
+      }
+    });
+
+    // Add Employee Function
+    function addEmployee() {
+      var name = prompt("Enter employee name:");
+      var email = prompt("Enter employee email:");
+      var phone = prompt("Enter employee phone number:");
+      var department = prompt("Enter employee department:");
+      var status = confirm("Is the employee active?") ? "active" : "inactive";
+
+      if (name && email && phone && department) {
+        var table = document.getElementById("employeeTable").getElementsByTagName("tbody")[0];
+        var newRow = table.insertRow();
+
+        newRow.innerHTML = `
+          <td>${name}</td>
+          <td>${email}</td>
+          <td>${phone}</td>
+          <td>${department}</td>
+          <td><a href="empldit.html">Edit</a></td>
+          <td><a href="tviewprofile.html">View</a></td>
+          <td><span class="status-circle status-${status}"></span></td>
+        `;
+      }
+    }
+  </script>
+</body>
+</html>

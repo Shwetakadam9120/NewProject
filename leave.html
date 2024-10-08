@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<!-- Coding by CodingNepal | www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style8.css">
+  <!-- Boxicons CDN Link -->
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Leave List Table styles */
+    .leave-list-section table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 140px;
+      margin-bottom: 20px;
+    }
+
+    .leave-list-section th,
+    .leave-list-section td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    .leave-list-section th {
+      background-color: #f2f2f2;
+    }
+
+    /* Button styles */
+    .leave-status-button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .leave-status-button.pending {
+      background-color: #ffc107;
+    }
+
+    .leave-status-button.approved {
+      background-color: #28a745;
+    }
+
+    .leave-status-button.rejected {
+      background-color: #dc3545;
+    }
+
+    .next-button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      margin-top: 150px;
+    }
+
+    .next-button:hover {
+      background-color: #0056b3;
+    }
+
+    .next-button:active {
+      background-color: #0056b3;
+    }
+
+    /* Styles for leave status counts */
+    .leave-status-count {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 30px;
+    }
+
+    .leave-status-count p {
+      background-color: #f2f2f2;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    .leave-status-count .pending {
+      background-color: #ffc107;
+    }
+
+    .leave-status-count .approved {
+      background-color: #28a745;
+    }
+
+    .leave-status-count .rejected {
+      background-color: #dc3545;
+    }
+
+    /* Adjust margin below the leave list heading */
+    .leave-list-section h2 {
+      margin-bottom: 150px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <img src="logo19.png" style="width: 50px; height: 50px;">
+      <span class="logo_name">Virajo.in</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="dashboard.html" class="active">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="team.html">
+          <i class='bx bx-group'></i>
+          <span class="links_name">Teams</span>
+        </a>
+      </li>
+      <li>
+        <a href="employees.html">
+          <i class='bx bx-user'></i>
+          <span class="links_name">Employees</span>
+        </a>
+      </li>
+      <li>
+        <a href="attendance.html">
+          <i class='bx bx-calendar'></i>
+          <span class="links_name">Attendance</span>
+        </a>
+      </li>
+      <li>
+        <a href="leave.html">
+          <i class='bx bx-calendar-event'></i>
+          <span class="links_name">Leaves</span>
+        </a>
+      </li>
+      <li>
+        <a href="payment-list.html">
+          <i class='bx bx-dollar-circle'></i>
+          <span class="links_name">Payment</span>
+        </a>
+      </li>
+      <li>
+        <a href="calendar.html">
+          <i class='bx bx-calendar'></i>
+          <span class="links_name">Calendar</span>
+        </a>
+      </li>
+      <li>
+        <a href="report1.html">
+          <i class='bx bx-file'></i>
+          <span class="links_name">Report</span>
+        </a>
+      </li>
+      <li>
+        <a href="notification.html">
+          <i class='bx bx-bell'></i>
+          <span class="links_name">Notification</span>
+        </a>
+      </li>
+      <li>
+        <a href="settings.html">
+          <i class='bx bx-cog'></i>
+          <span class="links_name">Setting</span>
+        </a>
+      </li>
+      <li class="log_out">
+        <a href="logut.html">
+          <i class='bx bx-log-out'></i>
+          <span class="links_name">Log out</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='bx bx-menu sidebarBtn'></i>
+        <span class="dashboard">Leave</span>
+      </div>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <i class='bx bx-search'></i>
+      </div>
+      <div class="profile-details">
+        <a href="adminpage.html">
+          <img src="user3.jpg" alt="">
+          <span class="adminpage">ABC</span>
+          <i class="bx bx-bell notification-icon"></i>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Leave List Table -->
+    <div class="leave-list-section">
+      <h2>Leave List</h2>
+      <!-- Leave status counts -->
+      <div class="leave-status-count" id="leaveCount"></div>
+      <table id="leaveTable">
+        <thead>
+          <tr>
+            <th>Employee Name</th>
+            <th>Leave Type</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John Doe</td>
+            <td>Vacation</td>
+            <td>2024-05-10</td>
+            <td>2024-05-15</td>
+            <td><button class="leave-status-button pending">Pending</button></td>
+          </tr>
+          <tr>
+            <td>Jane Smith</td>
+            <td>Sick</td>
+            <td>2024-05-08</td>
+            <td>2024-05-09</td>
+            <td><button class="leave-status-button approved">Approved</button></td>
+          </tr>
+          <tr>
+            <td>Michael Johnson</td>
+            <td>Maternity</td>
+            <td>2024-06-01</td>
+            <td>2024-07-01</td>
+            <td><button class="leave-status-button rejected">Rejected</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Apply leave button -->
+      <a href="leaveform.html" target="_blank" class="next-button">Apply</a>
+    </div>
+  </section>
+
+  <script>
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".sidebarBtn");
+    sidebarBtn.onclick = function() {
+      sidebar.classList.toggle("active");
+      if (sidebar.classList.contains("active")) {
+        sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+      } else {
+        sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+      }
+    }
+
+    // Counting leaves
+    let leaveButtons = document.querySelectorAll(".leave-status-button");
+    let pendingCount = 0;
+    let approvedCount = 0;
+    let rejectedCount = 0;
+    leaveButtons.forEach(button => {
+      if (button.classList.contains("pending")) {
+        pendingCount++;
+      } else if (button.classList.contains("approved")) {
+        approvedCount++;
+      } else if (button.classList.contains("rejected")) {
+        rejectedCount++;
+      }
+    });
+    document.getElementById("leaveCount").innerHTML = `
+      <p class="pending">Pending Leaves: ${pendingCount}</p>
+      <p class="approved">Approved Leaves: ${approvedCount}</p>
+      <p class="rejected">Rejected Leaves: ${rejectedCount}</p>
+    `;
+
+    // Search functionality
+    document.getElementById('searchInput').addEventListener('keyup', function() {
+      let filter = this.value.toLowerCase();
+      let rows = document.querySelectorAll('#leaveTable tbody tr');
+
+      rows.forEach(row => {
+        let text = row.innerText.toLowerCase();
+        row.style.display = text.includes(filter) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+
+</html>

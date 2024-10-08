@@ -1,0 +1,162 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+/* Body */
+body {
+  line-height: 1.6;
+  background-color: #f4f4f4;
+}
+
+/* Header Styles */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #cd9ffa;
+  color: white;
+  z-index: 1000;
+  height: 4rem;
+  box-shadow: 0px 4px 2px -2px gray;
+}
+
+.logo {
+  font-size: 2rem;
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+nav {
+  width: 30rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav ul li a {
+  font-size: 1.2rem;
+  padding: 1rem;
+  text-decoration: none;
+  color: white;
+}
+
+nav ul li a:hover {
+  background-color: #7a60ff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Button Styles */
+.reachUs-button,
+.apply-btn {
+  padding: 1rem;
+  background-color: #7a60ff;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.reachUs-button:hover,
+.apply-btn:hover {
+  background-color: #7a60ff;
+}
+
+/* Banner Styles */
+.banner {
+  text-align: center;
+  background-color: #ffffff;
+  margin: 0 auto;
+  padding-top: 4rem; /* Padding to prevent content from being hidden behind the fixed header */
+}
+
+.banner img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Contact Form Styles */
+.contact-form {
+  padding: 40px 0;
+  margin: 0 10px;
+}
+
+.form-container {
+  max-width: 40%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-container label {
+  display: block;
+  font-weight: bold;
+}
+
+.form-container input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  resize: vertical;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #333;
+  color: rgb(255, 255, 255);
+  padding: 20px 0;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+footer ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+footer ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+footer ul li a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+  color: #007BFF;
+}

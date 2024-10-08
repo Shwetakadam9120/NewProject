@@ -1,0 +1,388 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background: #333;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: width 0.3s;
+  color: #fff;
+}
+
+.sidebar.active {
+  width: 80px;
+}
+
+.sidebar .logo-details {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.sidebar .logo-details .logo_name {
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  position: relative;
+}
+
+.sidebar ul li a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 15px 20px;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.sidebar ul li a.active,
+.sidebar ul li a:hover {
+  background: #575757;
+}
+
+.sidebar ul li a i {
+  margin-right: 10px;
+}
+
+.sidebar .log_out {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.sidebar .log_out a {
+  padding: 15px 20px;
+}
+
+/* Home Section Styles */
+.home-section {
+  margin-left: 250px;
+  padding: 20px;
+  transition: margin-left 0.3s;
+}
+
+.home-section .sidebar-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home-section .sidebar-button .dashboard {
+  font-size: 22px;
+}
+
+.home-section .search-box {
+  margin: 20px 0;
+}
+
+.home-section .search-box input {
+  width: calc(100% - 30px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.home-section .search-box i {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 18px;
+  color: #aaa;
+}
+
+.home-section .profile-details {
+  display: flex;
+  align-items: center;
+}
+
+.home-section .profile-details img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.home-section .profile-details .adminpage {
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.home-section .notification-icon {
+  font-size: 24px;
+  color: #aaa;
+}
+
+/* Table Styles */
+.sales-boxes {
+  margin-top: 20px;
+}
+
+.recent-sales .box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.recent-sales .box .title {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.recent-sales .box table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.recent-sales .box table th,
+.recent-sales .box table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.recent-sales .box table th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.recent-sales .box table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.recent-sales .box table td a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+.recent-sales .box table td a:hover {
+  text-decoration: underline;
+}
+
+.button {
+  margin-top: 20px;
+}
+
+.button a {
+  display: inline-block;
+  padding: 10px 15px;
+  color: #fff;
+  background-color: #4CAF50;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.button a:hover {
+  background-color: #45a049;
+}
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background: #333;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: width 0.3s;
+  color: #fff;
+}
+
+.sidebar.active {
+  width: 80px;
+}
+
+.sidebar .logo-details {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.sidebar .logo-details .logo_name {
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  position: relative;
+}
+
+.sidebar ul li a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 15px 20px;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.sidebar ul li a.active,
+.sidebar ul li a:hover {
+  background: #575757;
+}
+
+.sidebar ul li a i {
+  margin-right: 10px;
+}
+
+.sidebar .log_out {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.sidebar .log_out a {
+  padding: 15px 20px;
+}
+
+/* Home Section Styles */
+.home-section {
+  margin-left: 250px;
+  padding: 20px;
+  transition: margin-left 0.3s;
+}
+
+.home-section .sidebar-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home-section .sidebar-button .dashboard {
+  font-size: 22px;
+}
+
+.home-section .search-box {
+  margin: 20px 0;
+}
+
+.home-section .search-box input {
+  width: calc(100% - 30px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.home-section .search-box i {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 18px;
+  color: #aaa;
+}
+
+.home-section .profile-details {
+  display: flex;
+  align-items: center;
+}
+
+.home-section .profile-details img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.home-section .profile-details .adminpage {
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.home-section .notification-icon {
+  font-size: 24px;
+  color: #aaa;
+}
+
+/* Table Styles */
+.sales-boxes {
+  margin-top: 20px;
+}
+
+.recent-sales .box {
+  background: #ff2626;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.recent-sales .box .title {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.recent-sales .box table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.recent-sales .box table th,
+.recent-sales .box table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.recent-sales .box table th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.recent-sales .box table tbody tr:hover {
+  background-color: #ffffff;
+}
+
+.recent-sales .box table td a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+.recent-sales .box table td a:hover {
+  text-decoration: underline;
+}
+
+.button {
+  margin-top: 20px;
+}
+
+.button a {
+  display: inline-block;
+  padding: 10px 15px;
+  color: #fff;
+  background-color: #4CAF50;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.button a:hover {
+  background-color: #45a049;
+}

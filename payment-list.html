@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Responsive Admin Dashboard | CodingLab</title>
+    <link rel="stylesheet" href="paymentlist.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Custom styles for headings */
+        .payroll-list h2 {
+            font-size: 24px;
+            color: #000000;
+            margin-bottom: 20px;
+        }
+
+        .payroll-list p {
+            font-size: 16px;
+            color: #000000;
+            margin-bottom: 20px;
+        }
+
+        .dropdown-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .dropdown {
+            width: 30%;
+        }
+
+        .dropdown label,
+        .dropdown select {
+            display: block;
+        }
+
+        .dropdown select {
+            margin-top: 5px;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            color: #333;
+            width: 100%;
+        }
+
+        /* Table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .search-box {
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .search-box input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <img src="logo19.png" style="width: 50px; height: 50px;">
+            <span class="logo_name">Virajo.in</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="dashboard.html" class="active">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="team.html">
+                    <i class='bx bx-group'></i>
+                    <span class="links_name">Teams</span>
+                </a>
+            </li>
+            <li>
+                <a href="employees.html">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">Employees</span>
+                </a>
+            </li>
+            <li>
+                <a href="attendance.html">
+                    <i class='bx bx-calendar'></i>
+                    <span class="links_name">Attendance</span>
+                </a>
+            </li>
+            <li>
+                <a href="leave.html">
+                    <i class='bx bx-calendar-event'></i>
+                    <span class="links_name">Leaves</span>
+                </a>
+            </li>
+            <li>
+                <a href="payment-list.html">
+                    <i class='bx bx-dollar-circle'></i>
+                    <span class="links_name">Payment</span>
+                </a>
+            </li>
+            <li>
+                <a href="calendar.php.html">
+                    <i class='bx bx-calendar'></i>
+                    <span class="links_name">Calendar</span>
+                </a>
+            </li>
+            <li>
+                <a href="report1.html">
+                    <i class='bx bx-file'></i>
+                    <span class="links_name">Report</span>
+                </a>
+            </li>
+            <li>
+                <a href="notification.html">
+                    <i class='bx bx-bell'></i>
+                    <span class="links_name">Notification</span>
+                </a>
+            </li>
+            <li>
+                <a href="settings.html">
+                    <i class='bx bx-cog'></i>
+                    <span class="links_name">Setting</span>
+                </a>
+            </li>
+            <li class="log_out">
+                <a href="logut.html">
+                    <i class='bx bx-log-out'></i>
+                    <span class="links_name">Log out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <section class="home-section">
+        <nav>
+            <div class="sidebar-button">
+                <i class='bx bx-menu sidebarBtn'></i>
+                <span class="dashboard">Payment</span>
+            </div>
+            <div class="search-box">
+                <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Search for employees...">
+                <i class='bx bx-search'></i>
+            </div>
+            <div class="profile-details">
+                <a href="adminpage.html">
+                    <img src="user3.jpg" alt="">
+                    <span class="adminpage">ABC</span>
+                    <i class="bx bx-bell notification-icon"></i>
+                </a>
+            </div>
+        </nav>
+
+        <div class="payroll-list">
+            <h2>Employee Payroll List</h2>
+            <p>Employee Payroll List.</p>
+
+            <div class="dropdown-container">
+                <div class="dropdown">
+                    <label for="branches">All Branches:</label>
+                    <select id="branches">
+                        <option value="branch1">Branch 1</option>
+                        <option value="branch2">Branch 2</option>
+                        <option value="branch3">Branch 3</option>
+                    </select>
+                </div>
+                <div class="dropdown">
+                    <label for="months">All Payroll Months:</label>
+                    <select id="months">
+                        <option value="january">January</option>
+                        <option value="february">February</option>
+                        <option value="march">March</option>
+                    </select>
+                </div>
+                <div class="dropdown">
+                    <label for="wageTypes">All Wage Types:</label>
+                    <select id="wageTypes">
+                        <option value="hourly">Hourly</option>
+                        <option value="monthly">Monthly</option>
+                        <option value="annual">Annual</option>
+                    </select>
+                </div>
+            </div>
+
+            <table id="employeeTable">
+                <thead>
+                    <tr>
+                        <th>Employee Name</th>
+                        <th>Type</th>
+                        <th>Contact</th>
+                        <th>Gross Earning</th>
+                        <th>Net Earning</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>Full-time</td>
+                        <td>123-456-7890<br>john.doe@example.com</td>
+                        <td>$5000</td>
+                        <td>$4000</td>
+                        <td>Active</td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>Part-time</td>
+                        <td>987-654-3210<br>jane.smith@example.com</td>
+                        <td>$3000</td>
+                        <td>$2500</td>
+                        <td>Active</td>
+                    </tr>
+                    <tr>
+                      <td>sayali</td>
+                      <td>Full-time</td>
+                      <td>987-654-3210<br>jane.smith@example.com</td>
+                      <td>$3000</td>
+                      <td>$2500</td>
+                      <td>Active</td>
+                  </tr>
+                  <tr>
+                    <td>snehal</td>
+                    <td>Part-time</td>
+                    <td>987-654-3210<br>jane.smith@example.com</td>
+                    <td>$3000</td>
+                    <td>$2500</td>
+                    <td>Active</td>
+                </tr>
+                <tr>
+                  <td>sakshi</td>
+                  <td>Part-time</td>
+                  <td>987-654-3210<br>jane.smith@example.com</td>
+                  <td>$3000</td>
+                  <td>$2500</td>
+                  <td>Active</td>
+              </tr>
+                    <!-- Add more table rows as needed -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <script>
+        let sidebar = document.querySelector(".sidebar");
+        let sidebarBtn = document.querySelector(".sidebarBtn");
+        sidebarBtn.onclick = function() {
+            sidebar.classList.toggle("active");
+            if (sidebar.classList.contains("active")) {
+                sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+            } else {
+                sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+            }
+        }
+
+        function searchTable() {
+            var input, filter, table, tr, td, i, j, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toLowerCase();
+            table = document.getElementById("employeeTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 1; i < tr.length; i++) { // Start at 1 to skip the header row
+                tr[i].style.display = "none"; // Initially hide all rows
+
+                td = tr[i].getElementsByTagName("td");
+                for (j = 0; j < td.length; j++) {
+                    if (td[j]) {
+                        txtValue = td[j].textContent || td[j].innerText;
+                        if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                            tr[i].style.display = ""; // Show the row if it matches the search query
+                            break; // If a match is found, no need to check other cells in the same row
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

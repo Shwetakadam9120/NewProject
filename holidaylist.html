@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Request Page (Mini Version)</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 10px;
+        }
+
+        /* Styling for leave balance section */
+        .leave-balance {
+            display: flex;
+            justify-content: space-around;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 6px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+        }
+
+        .leave-balance-item {
+            text-align: center;
+        }
+
+        .leave-balance-item span {
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+            color: #7a60ff; /* Primary color */
+        }
+
+        .leave-balance-item p {
+            margin: 0;
+            font-size: 12px;
+            color: #6c757d;
+        }
+
+        /* Container for form and holiday list */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .form-section,
+        .holiday-section {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .form-section h2,
+        .holiday-section h2 {
+            text-align: center;
+            color: #7a60ff;
+            margin-bottom: 15px;
+            font-size: 18px; /* Reduced font size */
+        }
+
+        /* Form styling */
+        .leave-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+            font-size: 14px; /* Reduced font size */
+        }
+
+        .leave-form input,
+        .leave-form select,
+        .leave-form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px; /* Reduced font size */
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        .leave-form input:focus,
+        .leave-form select:focus,
+        .leave-form textarea:focus {
+            border-color: #7a60ff;
+            outline: none;
+        }
+
+        .leave-form textarea {
+            resize: none;
+            height: 80px;
+        }
+
+        .leave-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #7a60ff;
+            color: white;
+            font-size: 16px; /* Reduced font size */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .leave-form button:hover {
+            background-color: #5e49d9;
+        }
+
+        /* Holiday list styling */
+        .holiday-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .holiday-list ul li {
+            font-size: 14px;
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .holiday-section {
+            background-color: #cd9ffa;
+        }
+
+        .holiday-section h2 {
+            color: white;
+        }
+
+        .holiday-list ul li {
+            color: white;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Leave Balance Section -->
+    <div class="leave-balance">
+        <div class="leave-balance-item">
+            <span id="cl-balance">5</span>
+            <p>Casual Leaves (CL)</p>
+        </div>
+        <div class="leave-balance-item">
+            <span id="pl-balance">8</span>
+            <p>Paid Leaves (PL)</p>
+        </div>
+        <div class="leave-balance-item">
+            <span id="sl-balance">10</span>
+            <p>Sick Leaves (SL)</p>
+        </div>
+        <div class="leave-balance-item">
+            <span id="ul-balance">Unlimited</span>
+            <p>Unpaid Leaves (UL)</p>
+        </div>
+    </div>
+
+    <!-- Two Column Layout for Form and Holiday List -->
+    <div class="container">
+        <!-- Leave Request Form Section -->
+        <div class="form-section">
+            <h2>Request Leave</h2>
+            <form class="leave-form" id="leaveRequestForm">
+                <label for="from-date">From Date:</label>
+                <input type="date" id="from-date" name="from-date" required>
+
+                <label for="to-date">To Date:</label>
+                <input type="date" id="to-date" name="to-date" required>
+
+                <label for="leave-type">Leave Type:</label>
+                <select id="leave-type" name="leave-type" required>
+                    <option value="cl">Casual Leave (CL)</option>
+                    <option value="pl">Paid Leave (PL)</option>
+                    <option value="sl">Sick Leave (SL)</option>
+                    <option value="ul">Unpaid Leave (UL)</option>
+                </select>
+
+                <label for="reason">Reason for Leave:</label>
+                <textarea id="reason" name="reason" placeholder="Enter the reason for your leave" required></textarea>
+
+                <button type="submit">Request Leave</button>
+            </form>
+        </div>
+
+        <!-- Holiday List Section -->
+        <div class="holiday-section">
+            <h2>Upcoming Holidays</h2>
+            <ul class="holiday-list">
+                <li>2024-08-15 - Independence Day</li>
+                <li>2024-09-07 - Ganesh Chaturthi</li>
+                <li>2024-10-02 - Gandhi Jayanti</li>
+                <li>2024-11-01 - Diwali</li>
+                <li>2024-11-02 - Govardhan Puja</li>
+                <li>2024-11-03 - Bhai Dhuj</li>
+                <li>2024-12-25 - Christmas</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- JavaScript for form submission -->
+    <script>
+        document.getElementById('leaveRequestForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Your leave request has been submitted successfully!');
+        });
+    </script>
+
+</body>
+</html>

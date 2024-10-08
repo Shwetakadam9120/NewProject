@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="report.css">
+  <!-- Boxicons CDN Link -->
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <img src="logo19.png" style="width: 50px; height: 50px;"> 
+      <span class="logo_name">Virajo.in</span>
+    </div>
+    <ul class="nav-links">
+        <li>
+            <a href="dashboard.html" class="active">
+              <i class='bx bx-grid-alt'></i>
+              <span class="links_name">Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="team.html">
+              <i class='bx bx-group'></i>
+              <span class="links_name">Teams</span>
+            </a>
+          </li>
+          <li>
+            <a href="empltable.php">
+              <i class='bx bx-user'></i>
+              <span class="links_name">Employees</span>
+            </a>
+          </li>
+          <li>
+            <a href="attendance.html">
+                <i class='bx bx-calendar'></i>
+                <span class="links_name">Attendance</span>
+              </a>
+            </li>
+            <li>
+              <a href="leave.html">
+                <i class='bx bx-calendar-event'></i>
+                <span class="links_name">Leaves</span>
+              </a>
+            </li>
+            <li>
+              <a href="payment-list.html">
+                <i class='bx bx-dollar-circle'></i>
+                <span class="links_name">Payment</span>
+              </a>
+            </li>
+            <li>
+              <a href="calendar.php.html">
+                <i class='bx bx-calendar'></i>
+                <span class="links_name">Calendar</span>
+              </a>
+            </li>
+            <li>
+              <a href="report.html">
+                <i class='bx bx-file'></i>
+                <span class="links_name">Report</span>
+              </a>
+            </li>
+            <li>
+              <a href="notification.html">
+                <i class='bx bx-bell'></i>
+                <span class="links_name">Notification</span>
+              </a>
+            </li>
+            <li>
+              <a href="settings.html">
+                <i class='bx bx-cog'></i>
+                <span class="links_name">Setting</span>
+              </a>
+            </li>
+            <li class="log_out">
+              <a href="logut.html">
+                <i class='bx bx-log-out'></i>
+                <span class="links_name">Log out</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+    </ul>
+  </div>
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='bx bx-menu sidebarBtn'></i>
+        <span class="dashboard">Report</span>
+      </div>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <i class='bx bx-search'></i>
+      </div>
+
+      <div class="profile-details">
+        <a href="adminpage.html">
+          <img src="user3.jpg" alt="">
+          <span class="adminpage">ABC</span>
+          <i class="bx bx-bell notification-icon"></i> 
+        </a>
+      </div>
+    </nav>
+
+    <div class="home-content">
+      <div class="overview-boxes">
+        <!-- Overview Boxes if any -->
+      </div>
+
+      <div class="employee-boxes">
+        <div class="recent-works box">
+      
+          <div class="work-details">
+            <table id="employeeTable">
+              <thead>
+                <tr>
+                  <th>Status</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Department</th>
+                  <th>Pending Work</th>
+                  <th>Completed Work</th>
+                  <th>Deadline</th>
+                  <th>Working List</th>
+                  <th>View Profile</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Status: Active</td>
+                  <td>abc</td>
+                  <td>abc@gmail.com</td>
+                  <td>8765432</td>
+                  <td>IT</td>
+                  <td>3 tasks</td>
+                  <td>5 tasks</td>
+                  <td>Oct 10, 2024</td>
+                  <td>Develop Website, Fix Bugs</td>
+                  <td><a href="emviewprofile.html">View Profile</a></td>
+                </tr>
+                <tr>
+                  <td>Status: Not Available</td>
+                  <td>xyz</td>
+                  <td>xyz@gmail.com</td>
+                  <td>2434567</td>
+                  <td>HR</td>
+                  <td>2 tasks</td>
+                  <td>8 tasks</td>
+                  <td>Oct 15, 2024</td>
+                  <td>Organize Event, Hire Staff</td>
+                  <td><a href="emviewprofile.html">View Profile</a></td>
+                </tr>
+                <!-- Additional Rows -->
+                <tr class="hidden">
+                  <td>Status: Active</td>
+                  <td>pqr</td>
+                  <td>pqr@gmail.com</td>
+                  <td>8765432</td>
+                  <td>Finance</td>
+                  <td>1 task</td>
+                  <td>4 tasks</td>
+                  <td>Oct 12, 2024</td>
+                  <td>Prepare Report, Audit Accounts</td>
+                  <td><a href="emviewprofile.html">View Profile</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="button">
+            <a id="seeAllButton" href="#">See All</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".sidebarBtn");
+    sidebarBtn.onclick = function() {
+      sidebar.classList.toggle("active");
+      if (sidebar.classList.contains("active")) {
+        sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+      } else {
+        sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+      }
+    };
+
+    // Search functionality
+    document.getElementById("searchInput").addEventListener("keyup", function() {
+      let input = this.value.toLowerCase();
+      let tableRows = document.querySelectorAll("#employeeTable tbody tr");
+
+      tableRows.forEach(row => {
+        let cells = row.querySelectorAll("td");
+        let rowText = Array.from(cells).map(cell => cell.textContent.toLowerCase()).join(" ");
+        row.style.display = rowText.includes(input) ? "" : "none";
+      });
+    });
+
+    // See All button functionality
+    document.getElementById("seeAllButton").addEventListener("click", function() {
+      let hiddenRows = document.querySelectorAll(".hidden");
+      hiddenRows.forEach(row => {
+        row.classList.remove("hidden");
+      });
+    });
+  </script>
+
+  <style>
+    .hidden {
+      display: none;
+    }
+    /* Add your styling for table, buttons, and layout in report.css */
+  </style>
+
+</body>
+</html>

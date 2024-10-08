@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Request Form</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .icon img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #7a60ff;
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            gap: 10px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #cd9ffa;
+            border-radius: 8px;
+            background-color: #f5f7fa;
+            font-size: 14px;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #7a60ff;
+            background-color: white;
+            outline: none;
+        }
+
+        input::placeholder {
+            color: #7a60ff;
+        }
+
+        button {
+            background-color: #7a60ff;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #cd9ffa;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .form-group {
+                flex-direction: column;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="icon">
+            <img src="user1.jpg" alt="User Icon"> <!-- Add the user icon path -->
+        </div>
+        <h2>Leave Request Form</h2>
+        <form id="leaveForm">
+            <div class="form-group">
+                <input type="text" id="firstName" placeholder="First Name" required>
+                <input type="text" id="lastName" placeholder="Last Name" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="employeeID" placeholder="Employee ID" required>
+                <input type="text" id="leaveDays" placeholder="Remaining leave days" required>
+            </div>
+            <div class="form-group">
+                <input type="date" id="startDate" required>
+                <input type="date" id="endDate" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('leaveForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Collect the form data if needed
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const employeeID = document.getElementById('employeeID').value;
+            const leaveDays = document.getElementById('leaveDays').value;
+            const startDate = document.getElementById('startDate').value;
+            const endDate = document.getElementById('endDate').value;
+
+            // You can perform any action with the data here if needed (like validation, saving to localStorage, etc.)
+
+            // Redirect to the specified URL after form submission
+            window.location.href = "http://localhost/Employee-Record-Management-System-Project/html-project/leave.html";
+        });
+    </script>
+</body>
+</html>

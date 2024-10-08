@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .note-container {
+            background-color: white;
+            border: 1px solid #ddd;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 400px;
+            border-radius: 8px;
+        }
+
+        .note-container h1 {
+            text-align: center;
+            color: #7a60ff; /* Primary color for the heading */
+        }
+
+        .note-container textarea {
+            width: 90%;
+            height: 200px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .note-container button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #7a60ff; /* Primary color for buttons */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .note-container button:hover {
+            background-color: #5e49d9; /* Darker shade on hover */
+        }
+
+        .note-display {
+            background-color: #cd9ffa; /* Secondary color for display background */
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+            white-space: pre-wrap; /* Preserve text formatting */
+            display: none;
+        }
+
+        .edit-btn {
+            background-color: #ff9800;
+            margin-top: 10px;
+        }
+
+        .edit-btn:hover {
+            background-color: #e68900;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="note-container">
+        <h1>My Notes</h1>
+        <!-- Note input section -->
+        <textarea id="noteText" placeholder="Write your notes here..."></textarea>
+        <button id="saveBtn" onclick="saveNote()">Save Note</button>
+
+        <!-- Display saved note section -->
+        <div class="note-display" id="displayNote"></div>
+        <button id="editBtn" class="edit-btn" style="display:none;" onclick="editNote()">Edit Note</button>
+    </div>
+
+    <script>
+        // Save the note and display it
+        function saveNote() {
+            let noteContent = document.getElementById("noteText").value;
+            if (noteContent.trim() !== "") {
+                // Show the note content
+                document.getElementById("displayNote").textContent = noteContent;
+                document.getElementById("displayNote").style.display = "block";
+
+                // Hide the textarea and save button
+                document.getElementById("noteText").style.display = "none";
+                document.getElementById("saveBtn").style.display = "none";
+
+                // Show the Edit button
+                document.getElementById("editBtn").style.display = "block";
+
+                alert("Note Saved!");
+            } else {
+                alert("Please write something to save!");
+            }
+        }
+
+        // Enable editing the note
+        function editNote() {
+            let noteContent = document.getElementById("displayNote").textContent;
+
+            // Show the textarea again with the note content for editing
+            document.getElementById("noteText").value = noteContent;
+            document.getElementById("noteText").style.display = "block";
+            document.getElementById("saveBtn").style.display = "block";
+
+            // Hide the displayed note and the Edit button
+            document.getElementById("displayNote").style.display = "none";
+            document.getElementById("editBtn").style.display = "none";
+        }
+    </script>
+
+</body>
+
+</html>
